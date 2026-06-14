@@ -9,7 +9,7 @@ export default {
   },
 
   sidebar: {
-    avatar: "/images/avatar.webp",
+    avatar: "/images/avatar.jpg",
     position: "right",
   },
 
@@ -21,15 +21,10 @@ export default {
     { name: "about", url: "/about" },
   ],
 
-  banner: "/images/banner.webp",
+  banner: "/images/banner.jpg",
 
   banner_srcset: {
-    enable: true,
-    srcset: [
-      { src: "/images/banner-600w.webp", media: "(max-width: 479px)" },
-      { src: "/images/banner-800w.webp", media: "(max-width: 799px)" },
-      { src: "/images/banner.webp", media: "(min-width: 800px)" },
-    ],
+    enable: false,
   },
 
   footer: {
