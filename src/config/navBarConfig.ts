@@ -33,24 +33,59 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 		],
 	});
 
-	// 相册
-	links.push(LinkPresets.Gallery);
+	//社交及其子菜单
+	links.push({
+		name: "社交",
+		url: "#",
+		icon: "material-symbols:group",
+		children: [
+			// 友链
+			LinkPresets.Friends,
 
-	// 动态
-	links.push(LinkPresets.Dynamic);
+			// 留言
+			LinkPresets.Guestbook,
+		],
+	});
 
-	// 关于
-	links.push(LinkPresets.About);
+	// 我的及其子菜单
+	links.push({
+		name: "我的",
+		url: "#",
+		icon: "material-symbols:person",
+		children: [
+			// 动态
+			LinkPresets.Dynamic,
 
+			// 相册
+			LinkPresets.Gallery,
 
+			// 追番
+			LinkPresets.Anime,
 
-	// 文档链接
-	// links.push({
-	// 	name: "文档",
-	// 	url: "https://docs-firefly.cuteleaf.cn",
-	// 	external: true,
-	// 	icon: "material-symbols:docs",
-	// });
+			// VNDB
+			LinkPresets.VNDB,
+
+			// 番组计划
+			LinkPresets.Bangumi,
+
+			// 书签导航
+			LinkPresets.Booknav,
+		],
+	});
+
+	// 关于及其子菜单
+	links.push({
+		name: "关于",
+		url: "#",
+		icon: "material-symbols:info",
+		children: [
+			// 打赏
+			LinkPresets.Sponsor,
+
+			// 关于页面
+			LinkPresets.About,
+		],
+	});
 
 	return { links } as NavBarConfig;
 };
