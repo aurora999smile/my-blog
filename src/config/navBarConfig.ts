@@ -18,31 +18,31 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 		icon: "material-symbols:home",
 	});
 
-	// 💌 书信集（寄给她的信）
+	// 💌 书信集
 	links.push({
 		name: "书信集",
-		url: "/archive/?category=寄给她的信",
+		url: "/archive/?category=书信集",
 		icon: "material-symbols:mail",
 	});
 
-	// 📜 纪事录（我们的纪事）
+	// 📜 纪事录
 	links.push({
 		name: "纪事录",
-		url: "/archive/?category=我们的纪事",
+		url: "/archive/?category=纪事录",
 		icon: "material-symbols:auto-stories",
 	});
 
-	// 🫀 情绪随笔（心内回声）
+	// 🫀 情绪随笔
 	links.push({
 		name: "情绪随笔",
-		url: "/archive/?category=心内回声",
+		url: "/archive/?category=情绪随笔",
 		icon: "material-symbols:favorite",
 	});
 
-	// ✍️ 碎碎念（短句碎念）
+	// ✍️ 碎碎念
 	links.push({
 		name: "碎碎念",
-		url: "/archive/?category=短句碎念",
+		url: "/archive/?category=碎碎念",
 		icon: "material-symbols:edit",
 	});
 
@@ -53,7 +53,7 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 		icon: "material-symbols:photo-library",
 	});
 
-	// ⏳ 时光轴&心愿单
+	// ⏳ 时光轴
 	links.push({
 		name: "时光轴",
 		url: "/timeline/",
@@ -80,7 +80,7 @@ export const navBarSearchConfig: NavBarSearchConfig = {
 // ============================================================================
 export const LinkPresets: Record<string, NavBarLink> = {
 	Home: {
-		name: "主页",
+		name: "首页",
 		url: "/",
 		icon: "material-symbols:home",
 	},
