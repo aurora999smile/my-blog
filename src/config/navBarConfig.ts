@@ -33,6 +33,20 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 		],
 	});
 
+	// 我们及其子菜单
+	links.push({
+		name: "我们",
+		url: "#",
+		icon: "material-symbols:favorite",
+		children: [
+			// 时间轴
+			LinkPresets.Timeline,
+
+			// 心愿清单
+			LinkPresets.BucketList,
+		],
+	});
+
 	//社交及其子菜单
 	links.push({
 		name: "社交",
@@ -47,11 +61,11 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 		],
 	});
 
-	// 我的及其子菜单
+	// 更多及其子菜单
 	links.push({
-		name: "我的",
+		name: "更多",
 		url: "#",
-		icon: "material-symbols:person",
+		icon: "material-symbols:expand-circle-down",
 		children: [
 			// 动态
 			LinkPresets.Dynamic,
@@ -178,6 +192,16 @@ export const LinkPresets: Record<string, NavBarLink> = {
 		url: "/booknav/",
 		icon: "material-symbols:bookmarks",
 		pageKey: "booknav",
+	},
+	Timeline: {
+		name: "时间轴",
+		url: "/timeline/",
+		icon: "material-symbols:timeline",
+	},
+	BucketList: {
+		name: "心愿清单",
+		url: "/bucketlist/",
+		icon: "material-symbols:checklist",
 	},
 };
 

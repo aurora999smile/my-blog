@@ -1,0 +1,284 @@
+---
+/**
+ * 恋爱计时看板组件
+ * 显示在一起总时长 + 关键纪念日倒计时
+ */
+---
+
+<div class="love-timer-wrapper card-base p-4 md:p-6 mx-2 md:mx-4 mb-4 onload-animation">
+  <!-- 标题 -->
+  <div class="text-center mb-4">
+    <div class="inline-flex items-center gap-2 mb-1">
+      <span class="text-xl">💕</span>
+      <span class="text-lg font-bold text-neutral-800 dark:text-neutral-100">我们的时光</span>
+      <span class="text-xl">💕</span>
+    </div>
+    <div class="text-sm text-neutral-400 dark:text-neutral-500">从 2024.07.14 开始</div>
+  </div>
+
+  <!-- 在一起总时长 -->
+  <div class="timer-total flex justify-center gap-3 md:gap-5 mb-5">
+    <div class="timer-unit">
+      <div class="timer-number" id="love-days">--</div>
+      <div class="timer-label">天</div>
+    </div>
+    <div class="timer-separator">:</div>
+    <div class="timer-unit">
+      <div class="timer-number" id="love-hours">--</div>
+      <div class="timer-label">时</div>
+    </div>
+    <div class="timer-separator">:</div>
+    <div class="timer-unit">
+      <div class="timer-number" id="love-minutes">--</div>
+      <div class="timer-label">分</div>
+    </div>
+    <div class="timer-separator">:</div>
+    <div class="timer-unit">
+      <div class="timer-number" id="love-seconds">--</div>
+      <div class="timer-label">秒</div>
+    </div>
+  </div>
+
+  <!-- 纪念日倒计时 -->
+  <div class="countdown-grid grid grid-cols-2 md:grid-cols-4 gap-3">
+    <div class="countdown-item">
+      <div class="countdown-icon">💑</div>
+      <div class="countdown-title">在一起纪念日</div>
+      <div class="countdown-date">每年 07.14</div>
+      <div class="countdown-value" id="cd-together">计算中...</div>
+    </div>
+    <div class="countdown-item">
+      <div class="countdown-icon">🌹</div>
+      <div class="countdown-title">初次见面</div>
+      <div class="countdown-date">每年 09.15</div>
+      <div class="countdown-value" id="cd-meeting">计算中...</div>
+    </div>
+    <div class="countdown-item">
+      <div class="countdown-icon">🎂</div>
+      <div class="countdown-title">他的生日</div>
+      <div class="countdown-date">每年 10.23</div>
+      <div class="countdown-value" id="cd-birthday-him">计算中...</div>
+    </div>
+    <div class="countdown-item">
+      <div class="countdown-icon">🎁</div>
+      <div class="countdown-title">她的生日</div>
+      <div class="countdown-date">农历正月十二</div>
+      <div class="countdown-value" id="cd-birthday-her">计算中...</div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .love-timer-wrapper {
+    background: linear-gradient(135deg, 
+      rgba(255, 182, 193, 0.15) 0%, 
+      rgba(255, 105, 180, 0.08) 50%, 
+      rgba(255, 182, 193, 0.15) 100%);
+    border: 1px solid rgba(255, 105, 180, 0.2);
+    border-radius: var(--radius-large, 1rem);
+  }
+
+  :global(.dark) .love-timer-wrapper {
+    background: linear-gradient(135deg, 
+      rgba(255, 105, 180, 0.08) 0%, 
+      rgba(255, 182, 193, 0.04) 50%, 
+      rgba(255, 105, 180, 0.08) 100%);
+    border-color: rgba(255, 105, 180, 0.15);
+  }
+
+  .timer-total {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .timer-unit {
+    text-align: center;
+  }
+
+  .timer-number {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--primary, #ff69b4);
+    line-height: 1;
+    min-width: 3rem;
+    font-variant-numeric: tabular-nums;
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .timer-separator {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary, #ff69b4);
+    opacity: 0.5;
+    align-self: flex-start;
+    margin-top: 0.2rem;
+    animation: blink 1s ease-in-out infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+  }
+
+  .timer-label {
+    font-size: 0.75rem;
+    color: #999;
+    margin-top: 0.25rem;
+  }
+
+  .countdown-item {
+    text-align: center;
+    padding: 0.75rem 0.5rem;
+    border-radius: 0.75rem;
+    background: rgba(255, 105, 180, 0.05);
+    border: 1px solid rgba(255, 105, 180, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .countdown-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 105, 180, 0.15);
+  }
+
+  :global(.dark) .countdown-item {
+    background: rgba(255, 105, 180, 0.03);
+    border-color: rgba(255, 105, 180, 0.1);
+  }
+
+  .countdown-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .countdown-title {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #666;
+    margin-bottom: 0.15rem;
+  }
+
+  :global(.dark) .countdown-title {
+    color: #aaa;
+  }
+
+  .countdown-date {
+    font-size: 0.7rem;
+    color: #999;
+    margin-bottom: 0.35rem;
+  }
+
+  .countdown-value {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--primary, #ff69b4);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* 移动端适配 */
+  @media (max-width: 640px) {
+    .timer-number {
+      font-size: 1.4rem;
+      min-width: 2.2rem;
+    }
+    .timer-separator {
+      font-size: 1.2rem;
+    }
+  }
+</style>
+
+<script is:inline>
+(function() {
+  // === 配置 ===
+  var TOGETHER_DATE = new Date('2024-07-14T00:00:00+08:00');
+  // 农历正月十二对应的阳历日期（2024-2030）
+  var LUNAR_BIRTHDAY_HER = [
+    { year: 2024, month: 1, day: 20 }, // 2024年农历正月十二 ≈ 2月21日
+    { year: 2025, month: 0, day: 8 },  // 2025年 ≈ 2月9日
+    { year: 2026, month: 1, day: 27 }, // 2026年 ≈ 2月28日
+    { year: 2027, month: 1, day: 16 }, // 2027年 ≈ 2月17日
+    { year: 2028, month: 1, day: 5 },  // 2028年 ≈ 2月6日
+    { year: 2029, month: 1, day: 23 }, // 2029年 ≈ 2月24日
+    { year: 2030, month: 1, day: 12 }, // 2030年 ≈ 2月13日
+  ];
+
+  function pad(n) { return n < 10 ? '0' + n : '' + n; }
+
+  // 计算下一个纪念日日期
+  function getNextAnniversary(month, day) {
+    var now = new Date();
+    var year = now.getFullYear();
+    var next = new Date(year, month, day, 0, 0, 0);
+    if (next <= now) {
+      next = new Date(year + 1, month, day, 0, 0, 0);
+    }
+    return next;
+  }
+
+  // 获取她的下一个生日（从预计算表中查找）
+  function getNextHerBirthday() {
+    var now = new Date();
+    var currentYear = now.getFullYear();
+    for (var i = 0; i < LUNAR_BIRTHDAY_HER.length; i++) {
+      var b = LUNAR_BIRTHDAY_HER[i];
+      if (b.year >= currentYear) {
+        var next = new Date(b.year, b.month, b.day, 0, 0, 0);
+        if (next > now) return next;
+      }
+    }
+    // 超出预计算范围，返回下一年的近似值
+    return new Date(currentYear + 1, 1, 20, 0, 0, 0);
+  }
+
+  function formatCountdown(target) {
+    var now = new Date();
+    var diff = target - now;
+    if (diff <= 0) return '🎉 今天！';
+    var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    if (days > 365) {
+      var years = Math.floor(days / 365);
+      days = days % 365;
+      return years + '年' + days + '天';
+    }
+    if (days > 0) return days + '天' + hours + '小时';
+    var minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    return hours + '时' + minutes + '分';
+  }
+
+  function updateTimer() {
+    var now = new Date();
+
+    // === 总时长 ===
+    var totalDiff = now - TOGETHER_DATE;
+    var totalDays = Math.floor(totalDiff / (1000 * 60 * 60 * 24));
+    var totalHours = Math.floor((totalDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var totalMinutes = Math.floor((totalDiff % (1000 * 60 * 60)) / (1000 * 60));
+    var totalSeconds = Math.floor((totalDiff % (1000 * 60)) / 1000);
+
+    var dEl = document.getElementById('love-days');
+    var hEl = document.getElementById('love-hours');
+    var mEl = document.getElementById('love-minutes');
+    var sEl = document.getElementById('love-seconds');
+    if (dEl) dEl.textContent = totalDays;
+    if (hEl) hEl.textContent = pad(totalHours);
+    if (mEl) mEl.textContent = pad(totalMinutes);
+    if (sEl) sEl.textContent = pad(totalSeconds);
+
+    // === 倒计时 ===
+    var cdTogether = document.getElementById('cd-together');
+    var cdMeeting = document.getElementById('cd-meeting');
+    var cdBdHim = document.getElementById('cd-birthday-him');
+    var cdBdHer = document.getElementById('cd-birthday-her');
+
+    if (cdTogether) cdTogether.textContent = formatCountdown(getNextAnniversary(6, 14));
+    if (cdMeeting) cdMeeting.textContent = formatCountdown(getNextAnniversary(8, 15));
+    if (cdBdHim) cdBdHim.textContent = formatCountdown(getNextAnniversary(9, 22));
+    if (cdBdHer) cdBdHer.textContent = formatCountdown(getNextHerBirthday());
+  }
+
+  updateTimer();
+  setInterval(updateTimer, 1000);
+})();
+</script>

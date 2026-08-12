@@ -1,29 +1,37 @@
-# 关于我 / About Me
+# 关于我们 💕
 
-你好！我是 **夏叶** ，一个在数字世界中默默无闻的一片叶子。
+## 关于这个博客
 
-## 🛠️ 关于本站
+**斐拾婷光** 是 zf 和 ltt 的恋爱日常记录站。
 
-这个网站使用 **Astro** 框架构建，采用了 [Firefly](https://github.com/CuteLeaf/Firefly) 模板，Firefly 是基于 [Fuwari](https://github.com/saicaca/fuwari) 的二次开发。
+我们想用文字和照片留住每一个温暖的瞬间——从初识到在一起，从第一次见面到每一次旅行，从日常碎片到节日留念。
 
-**Firefly** 是一款基于 Astro 框架和 Fuwari 模板开发的清新美观且现代化个人博客主题模板，专为技术爱好者和内容创作者设计。该主题融合了现代 Web 技术栈，提供了丰富的功能模块和高度可定制的界面，让您能够轻松打造出专业且美观的个人博客网站。
+这里没有什么宏大的叙事，只有两个人最真实的生活片段。
 
+## 关于我们
 
-**🖥️在线预览： [Firefly - Demo site](https://firefly.cuteleaf.cn/)**
+- **zf** — 一个喜欢记录生活的人
+- **ltt** — 一个值得被记录的人
 
-**🏠我的博客： [https://blog.cuteleaf.cn](https://blog.cuteleaf.cn/)**
+2024.07.14 在一起 💑
+2024.09.15 第一次见面 🌹
 
-**📝Firefly使用文档： [https://docs-firefly.cuteleaf.cn](https://docs-firefly.cuteleaf.cn/)**
+## 关于本站
 
-**⭐Firefly开源地址：[https://github.com/CuteLeaf/Firefly](https://github.com/CuteLeaf/Firefly)** 
+这个博客使用 **Astro** 框架构建，采用了 [Firefly](https://github.com/CuteLeaf/Firefly) 主题。
 
-**⭐Fuwari开源地址：[https://github.com/saicaca/fuwari](https://github.com/saicaca/fuwari)**
+**主要功能：**
+- 📝 文章记录日常
+- 📸 相册保存照片
+- 💕 恋爱计时看板
+- 📖 时间轴记录重要时刻
+- ✅ 心愿清单一起打卡
 
-::github{repo="CuteLeaf/Firefly"}
+## 联系我们
 
-::github{repo="saicaca/fuwari"}
+如果你认识我们，欢迎留言。
+如果你不认识我们，欢迎来访。
 
 ---
 
-*感谢你的来访！希望在这里能找到对你有用的内容！*
-
+*每一天都值得被记住。*
