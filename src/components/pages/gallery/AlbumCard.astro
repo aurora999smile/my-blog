@@ -35,7 +35,7 @@ const lqipProps = cover ? getLqipProps(cover, undefined, true) : { style: "" };
 <a
   href={url(`/gallery/${id}/`)}
   data-tags={tags?.join(",") || ""}
-  class="album-card group relative block overflow-hidden rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-[1.02]"
+  class="album-card group relative block overflow-hidden rounded-xl transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
 >
   <!-- Cover Image -->
   <div class="aspect-4/3 relative overflow-hidden">
@@ -51,8 +51,8 @@ const lqipProps = cover ? getLqipProps(cover, undefined, true) : { style: "" };
         />
       </>
     ) : (
-      <div class="w-full h-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
-        <div class="text-gray-400 text-5xl">&#x1f4f7;</div>
+      <div class="w-full h-full bg-gradient-to-br from-pink-50 via-rose-50 to-pink-100 dark:from-pink-950/40 dark:via-rose-950/30 dark:to-pink-900/40 flex items-center justify-center">
+        <div class="text-pink-300 dark:text-pink-600 text-5xl">&#x1f4f7;</div>
       </div>
     )}
 

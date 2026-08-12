@@ -11,7 +11,7 @@ const { class: className, style } = Astro.props;
 ---
 
 <WidgetLayout name="💬 随机语录" showTitle={true} id="random-quote" class={className} style={style}>
-  <div id="random-quote-box" class="text-sm text-neutral-600 dark:text-neutral-300 leading-relaxed italic min-h-[3rem]">
+  <div id="random-quote-box" class="text-sm text-neutral-600 dark:text-neutral-300 leading-relaxed italic min-h-[3rem] cursor-pointer select-none" title="点击切换语录">
     加载中...
   </div>
 </WidgetLayout>
@@ -31,15 +31,29 @@ const { class: className, style } = Astro.props;
     { text: "和你在一起的每一天都值得纪念。", author: "ltt" },
   ];
 
+  var lastIndex = -1;
+
   function showRandom() {
     var el = document.getElementById('random-quote-box');
     if (!el) return;
-    var q = quotes[Math.floor(Math.random() * quotes.length)];
+    var idx;
+    do { idx = Math.floor(Math.random() * quotes.length); } while (idx === lastIndex && quotes.length > 1);
+    lastIndex = idx;
+    var q = quotes[idx];
     el.innerHTML = '<span class="text-pink-400">「</span>' + q.text + '<span class="text-pink-400">」</span><br/><span class="text-xs text-neutral-400 not-italic mt-1 block text-right">—— ' + q.author + '</span>';
   }
 
   showRandom();
-  // 每 10 秒自动换一条
-  setInterval(showRandom, 10000);
+
+  // 点击手动切换
+  var box = document.getElementById('random-quote-box');
+  if (box) {
+    box.addEventListener('click', function() {
+      showRandom();
+    });
+  }
+
+  // 自动刷新：6秒一次
+  setInterval(showRandom, 6000);
 })();
 </script>

@@ -8,7 +8,7 @@ export const announcementConfig: AnnouncementConfig = {
 	content: "这里收藏我们所有温柔、故事与心里话。",
 
 	// 是否允许用户关闭公告
-	closable: true,
+	closable: false,
 
 	link: {
 		// 启用链接

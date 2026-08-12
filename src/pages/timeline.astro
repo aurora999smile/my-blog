@@ -1,41 +1,57 @@
 ---
 import MainGridLayout from "@/layouts/MainGridLayout.astro";
+import { getCollection } from "astro:content";
+import { getPostUrlBySlug } from "@/utils/url-utils";
 
 const title = "时光轴 & 心愿单";
 const description = "我们的故事，我们的心愿";
 
-// === 时间轴数据 ===
-const milestones = [
-	{
-		date: "2024-07-14",
-		title: "在一起啦 💕",
-		desc: "从这一天开始，我们的故事正式启程。",
-		icon: "💑",
-		side: "left",
-	},
-	{
-		date: "2024-09-15",
-		title: "第一次见面 🌹",
-		desc: "终于从线上走到线下，见到真实的彼此。",
-		icon: "🌹",
-		side: "right",
-	},
-	// 在下方继续添加新的里程碑...
-];
+// ========================================
+// 时间轴分类开关配置
+// 设置为 true 即可在时间轴上显示对应分类的文章
+// ========================================
+const timelineCategories = {
+  "纪事录": true,        // 默认开启：纪事录
+  "寄给她的信": false,    // 预留：书信集
+  "情绪随笔": false,      // 预留：情绪随笔
+};
 
-function formatDate(dateStr: string) {
-	const d = new Date(dateStr);
-	const year = d.getFullYear();
-	const month = String(d.getMonth() + 1).padStart(2, "0");
-	const day = String(d.getDate()).padStart(2, "0");
-	const weekdays = ["日", "一", "二", "三", "四", "五", "六"];
-	const weekday = weekdays[d.getDay()];
-	return { full: `${year}.${month}.${day}`, weekday: `星期${weekday}` };
+// 获取需要显示的分类列表
+const activeCategories = Object.entries(timelineCategories)
+  .filter(([, enabled]) => enabled)
+  .map(([cat]) => cat);
+
+// 使用 Astro 原生 getCollection API 自动读取所有文章
+const allPosts = await getCollection("posts", ({ data }) => {
+  // 生产环境排除草稿
+  if (import.meta.env.PROD && data.draft) return false;
+  // 筛选：只保留开启了的分类
+  return data.category && activeCategories.includes(data.category);
+});
+
+// 按 published 日期正序排序（由远及近，从初识往现在推进）
+const sortedPosts = allPosts.sort((a, b) => {
+  const dateA = new Date(a.data.published);
+  const dateB = new Date(b.data.published);
+  return dateA.getTime() - dateB.getTime();
+});
+
+// 格式化日期
+function formatDate(date: Date) {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  const weekdays = ["日", "一", "二", "三", "四", "五", "六"];
+  const weekday = weekdays[date.getDay()];
+  return { full: `${year}.${month}.${day}`, weekday: `星期${weekday}` };
 }
 
-const sorted = milestones.sort(
-	(a, b) => new Date(a.date).getTime() - new Date(b.date).getTime(),
-);
+// 分类对应的简约图标（日历/记事风格）
+const categoryIcons: Record<string, string> = {
+  "纪事录": "📖",
+  "寄给她的信": "💌",
+  "情绪随笔": "✍️",
+};
 ---
 
 <MainGridLayout title={title} description={description}>
@@ -52,23 +68,36 @@ const sorted = milestones.sort(
       <div class="timeline-container relative mb-10">
         <div class="timeline-line absolute left-1/2 -translate-x-px top-0 bottom-0 w-0.5 bg-gradient-to-b from-pink-300 via-pink-400 to-pink-300 dark:from-pink-700 dark:via-pink-600 dark:to-pink-700"></div>
 
-        {sorted.map((item) => {
-          const { full, weekday } = formatDate(item.date);
-          const isLeft = item.side === "left";
-          return (
-            <div class={`timeline-item relative flex items-center mb-8 ${isLeft ? "flex-row" : "flex-row-reverse"}`}>
-              <div class={`w-[calc(50%-1.5rem)] ${isLeft ? "pr-4 text-right" : "pl-4 text-left"}`}>
-                <div class="timeline-card inline-block p-4 rounded-xl bg-white/60 dark:bg-neutral-800/60 border border-pink-100 dark:border-pink-900/30 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5 max-w-full text-left">
-                  <div class="text-xs text-pink-400 dark:text-pink-500 font-medium mb-1">{full} {weekday}</div>
-                  <div class="text-base font-bold text-neutral-800 dark:text-neutral-100 mb-1">{item.title}</div>
-                  <div class="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed">{item.desc}</div>
+        {sortedPosts.length > 0 ? (
+          sortedPosts.map((post, index) => {
+            const { full, weekday } = formatDate(post.data.published);
+            const isLeft = index % 2 === 0;
+            const slug = post.id;
+            const postUrl = getPostUrlBySlug(slug);
+            const icon = categoryIcons[post.data.category || ""] || "📖";
+            return (
+              <div class={`timeline-item relative flex items-center mb-8 ${isLeft ? "flex-row" : "flex-row-reverse"}`}>
+                <div class={`w-[calc(50%-1.5rem)] ${isLeft ? "pr-4 text-right" : "pl-4 text-left"}`}>
+                  <a href={postUrl} class="timeline-card inline-block p-4 rounded-xl bg-white/60 dark:bg-neutral-800/60 border border-pink-100 dark:border-pink-900/30 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5 max-w-full text-left no-underline group">
+                    <div class="text-xs text-pink-400 dark:text-pink-500 font-medium mb-1">{full} {weekday}</div>
+                    <div class="text-base font-bold text-neutral-800 dark:text-neutral-100 mb-1 group-hover:text-pink-500 dark:group-hover:text-pink-400 transition-colors">{post.data.title}</div>
+                    {post.data.description && (
+                      <div class="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed line-clamp-2">{post.data.description}</div>
+                    )}
+                  </a>
                 </div>
+                <div class="timeline-dot absolute left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-pink-100 dark:bg-pink-900/40 border-2 border-pink-300 dark:border-pink-700 flex items-center justify-center text-sm z-10 shadow-sm">{icon}</div>
+                <div class="w-[calc(50%-1.5rem)]"></div>
               </div>
-              <div class="timeline-dot absolute left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-pink-100 dark:bg-pink-900/40 border-2 border-pink-300 dark:border-pink-700 flex items-center justify-center text-sm z-10 shadow-sm">{item.icon}</div>
-              <div class="w-[calc(50%-1.5rem)]"></div>
-            </div>
-          );
-        })}
+            );
+          })
+        ) : (
+          <div class="text-center py-12 text-neutral-400 dark:text-neutral-500">
+            <div class="text-3xl mb-3">📭</div>
+            <p class="text-sm">还没有纪事录文章</p>
+            <p class="text-xs mt-1 text-neutral-300 dark:text-neutral-600">写一篇文章，它会自动出现在这里</p>
+          </div>
+        )}
 
         <div class="relative flex items-center justify-center py-4">
           <div class="timeline-dot absolute left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-pink-50 dark:bg-pink-900/20 border-2 border-dashed border-pink-300 dark:border-pink-700 flex items-center justify-center text-sm z-10">✨</div>

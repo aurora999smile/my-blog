@@ -430,8 +430,8 @@ export const zh_CN: Translation = {
 	[Key.codeCollapsibleCollapsed]: "代码块已折叠",
 
 	// 相册页面
-	[Key.gallery]: "相册",
-	[Key.galleryDescription]: "记录生活中的美好瞬间",
+	[Key.gallery]: "光影存档 · 收藏我们的岁岁年年",
+	[Key.galleryDescription]: "",
 	[Key.galleryPhotos]: "张照片",
 	[Key.galleryAlbums]: "本相册",
 	[Key.galleryNoAlbums]: "暂无相册",
