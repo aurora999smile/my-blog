@@ -1,0 +1,33 @@
+---
+import MainGridLayout from "@/layouts/MainGridLayout.astro";
+import Giscus from "@/components/comment/Giscus.astro";
+
+const title = "悄悄话";
+const description = "写给你的悄悄话，只有我们知道";
+---
+
+<MainGridLayout title={title} description={description}>
+  <div class="flex w-full rounded-(--radius-large) overflow-hidden relative min-h-32">
+    <div class="card-base z-10 px-6 py-8 relative w-full">
+      <!-- 页面标题 -->
+      <div class="text-center mb-6">
+        <div class="text-3xl mb-2">💬</div>
+        <h1 class="text-2xl font-bold text-neutral-800 dark:text-neutral-100 mb-1">{title}</h1>
+        <p class="text-sm text-neutral-400 dark:text-neutral-500">{description}</p>
+      </div>
+
+      <!-- 引导文字 -->
+      <div class="text-center mb-8 p-6 rounded-xl bg-pink-50/50 dark:bg-pink-900/10 border border-pink-100 dark:border-pink-900/20">
+        <p class="text-neutral-600 dark:text-neutral-300 text-sm leading-relaxed">
+          这里是我们互相留言的小角落 ✉️<br/>
+          想说什么就写什么，只有我们能看到。
+        </p>
+      </div>
+
+      <!-- Giscus 评论系统 -->
+      <div class="mt-4">
+        <Giscus />
+      </div>
+    </div>
+  </div>
+</MainGridLayout>

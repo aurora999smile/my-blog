@@ -634,6 +634,29 @@ const siteLang = lang.replace("_", "-");
 
     <!-- Tab 代码块交互 -->
     <CodeGroupManager />
+
+    <!-- 点击爱心彩蛋 -->
+    <script is:inline data-swup-ignore-script>
+      (function() {
+        var hearts = ['❤️', '💕', '💗', '💖', '💘', '💝', '✨'];
+        document.addEventListener('click', function(e) {
+          for (var i = 0; i < 3; i++) {
+            var heart = document.createElement('span');
+            heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+            heart.style.cssText = 'position:fixed;pointer-events:none;z-index:99999;font-size:' + (16 + Math.random() * 16) + 'px;left:' + (e.clientX + (Math.random() - 0.5) * 40) + 'px;top:' + e.clientY + 'px;transition:all 1s ease-out;opacity:1;';
+            document.body.appendChild(heart);
+            (function(el, delay) {
+              setTimeout(function() {
+                el.style.top = (e.clientY - 60 - Math.random() * 40) + 'px';
+                el.style.opacity = '0';
+                el.style.transform = 'scale(' + (0.5 + Math.random()) + ') rotate(' + (Math.random() * 30 - 15) + 'deg)';
+              }, delay);
+              setTimeout(function() { el.remove(); }, 1200);
+            })(heart, i * 80);
+          }
+        });
+      })();
+    </script>
   </body>
 </html>
 
@@ -771,6 +794,25 @@ const siteLang = lang.replace("_", "-");
     body.sticky-navbar #top-row {
       height: 4.5rem !important;
     }
+
+    /* ========== 情侣博客：文章分类背景色 ========== */
+    /* 寄给她的信：浅柔粉信纸 */
+    .post-category-寄给她的信 {
+      background: linear-gradient(135deg, rgba(255, 182, 193, 0.08) 0%, rgba(255, 105, 180, 0.04) 100%);
+    }
+    .dark .post-category-寄给她的信 {
+      background: linear-gradient(135deg, rgba(255, 105, 180, 0.05) 0%, rgba(255, 182, 193, 0.02) 100%);
+    }
+
+    /* 心内回声：淡浅紫 */
+    .post-category-心内回声 {
+      background: linear-gradient(135deg, rgba(196, 181, 253, 0.08) 0%, rgba(167, 139, 250, 0.04) 100%);
+    }
+    .dark .post-category-心内回声 {
+      background: linear-gradient(135deg, rgba(167, 139, 250, 0.05) 0%, rgba(196, 181, 253, 0.02) 100%);
+    }
+
+    /* 我们的纪事 / 短句碎念：纯净白底（默认） */
   }
 </style>
 

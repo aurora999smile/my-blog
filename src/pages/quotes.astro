@@ -1,0 +1,63 @@
+---
+import MainGridLayout from "@/layouts/MainGridLayout.astro";
+
+const title = "语录收藏墙";
+const description = "聊天摘录、短句、文案，那些值得珍藏的话";
+
+// 语录数据 — 在这里添加新的语录
+const quotes = [
+  { text: "遇见你之前，我没想过结婚；遇见你之后，我没想过别人。", author: "zf", color: "pink" },
+  { text: "你笑的时候，全世界都在发光。", author: "ltt", color: "purple" },
+  { text: "我想和你一起慢慢变老。", author: "zf", color: "blue" },
+  { text: "今天的风好温柔，像你一样。", author: "ltt", color: "green" },
+  { text: "你是我所有不安的解药。", author: "zf", color: "orange" },
+  { text: "喜欢你这件事，我打算坚持一辈子。", author: "ltt", color: "pink" },
+  // 在下方继续添加...
+];
+
+const colorMap: Record<string, string> = {
+  pink: "from-pink-50 to-pink-100/50 dark:from-pink-900/20 dark:to-pink-900/10 border-pink-200 dark:border-pink-800/30",
+  purple: "from-purple-50 to-purple-100/50 dark:from-purple-900/20 dark:to-purple-900/10 border-purple-200 dark:border-purple-800/30",
+  blue: "from-blue-50 to-blue-100/50 dark:from-blue-900/20 dark:to-blue-900/10 border-blue-200 dark:border-blue-800/30",
+  green: "from-green-50 to-green-100/50 dark:from-green-900/20 dark:to-green-900/10 border-green-200 dark:border-green-800/30",
+  orange: "from-orange-50 to-orange-100/50 dark:from-orange-900/20 dark:to-orange-900/10 border-orange-200 dark:border-orange-800/30",
+};
+---
+
+<MainGridLayout title={title} description={description}>
+  <div class="flex w-full rounded-(--radius-large) overflow-hidden relative min-h-32">
+    <div class="card-base z-10 px-6 py-8 relative w-full">
+      <!-- 页面标题 -->
+      <div class="text-center mb-6">
+        <div class="text-3xl mb-2">📝</div>
+        <h1 class="text-2xl font-bold text-neutral-800 dark:text-neutral-100 mb-1">{title}</h1>
+        <p class="text-sm text-neutral-400 dark:text-neutral-500">{description}</p>
+      </div>
+
+      <!-- 语录卡片流 -->
+      <div class="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
+        {quotes.map((q) => (
+          <div class={`quote-card break-inside-avoid p-5 rounded-xl bg-gradient-to-br ${colorMap[q.color] || colorMap.pink} border shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5`}>
+            <div class="text-lg text-neutral-700 dark:text-neutral-200 leading-relaxed mb-3 font-medium" style="font-family: 'Noto Serif SC', serif;">
+              「{q.text}」
+            </div>
+            <div class="text-xs text-neutral-400 dark:text-neutral-500 text-right">
+              —— {q.author}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- 添加提示 -->
+      <div class="text-center mt-8 text-sm text-neutral-300 dark:text-neutral-600">
+        更多语录正在收集中...
+      </div>
+    </div>
+  </div>
+</MainGridLayout>
+
+<style>
+  .quote-card {
+    background-size: 200% 200%;
+  }
+</style>

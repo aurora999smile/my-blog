@@ -6,99 +6,65 @@ import {
 } from "../types/navBarConfig";
 
 // ============================================================================
-// 导航栏配置 - 根据顺序动态生成导航栏链接
-// NavBar Configuration - Dynamically generate navigation bar links based on order
+// 导航栏配置 - 情侣纪念站专用
 // ============================================================================
 const getDynamicNavBarConfig = (): NavBarConfig => {
-	// 基础导航栏链接
 	const links: NavBarLink[] = [];
 
-	// 主页
-	links.push(LinkPresets.Home);
-
-	// 文章及其子菜单
+	// 🏠 首页
 	links.push({
-		name: "文章",
-		url: "#",
-		icon: "material-symbols:article",
-		children: [
-			// 归档
-			LinkPresets.Archive,
-
-			// 分类
-			LinkPresets.Categories,
-
-			// 标签
-			LinkPresets.Tags,
-		],
+		name: "首页",
+		url: "/",
+		icon: "material-symbols:home",
 	});
 
-	// 我们及其子菜单
+	// 💌 书信集（寄给她的信）
 	links.push({
-		name: "我们",
-		url: "#",
+		name: "书信集",
+		url: "/archive/?category=寄给她的信",
+		icon: "material-symbols:mail",
+	});
+
+	// 📜 纪事录（我们的纪事）
+	links.push({
+		name: "纪事录",
+		url: "/archive/?category=我们的纪事",
+		icon: "material-symbols:auto-stories",
+	});
+
+	// 🫀 情绪随笔（心内回声）
+	links.push({
+		name: "情绪随笔",
+		url: "/archive/?category=心内回声",
 		icon: "material-symbols:favorite",
-		children: [
-			// 时间轴
-			LinkPresets.Timeline,
-
-			// 心愿清单
-			LinkPresets.BucketList,
-		],
 	});
 
-	//社交及其子菜单
+	// ✍️ 碎碎念（短句碎念）
 	links.push({
-		name: "社交",
-		url: "#",
-		icon: "material-symbols:group",
-		children: [
-			// 友链
-			LinkPresets.Friends,
-
-			// 留言
-			LinkPresets.Guestbook,
-		],
+		name: "碎碎念",
+		url: "/archive/?category=短句碎念",
+		icon: "material-symbols:edit",
 	});
 
-	// 更多及其子菜单
+	// 🖼 回忆相册
 	links.push({
-		name: "更多",
-		url: "#",
-		icon: "material-symbols:expand-circle-down",
-		children: [
-			// 动态
-			LinkPresets.Dynamic,
-
-			// 相册
-			LinkPresets.Gallery,
-
-			// 追番
-			LinkPresets.Anime,
-
-			// VNDB
-			LinkPresets.VNDB,
-
-			// 番组计划
-			LinkPresets.Bangumi,
-
-			// 书签导航
-			LinkPresets.Booknav,
-		],
+		name: "回忆相册",
+		url: "/gallery/",
+		icon: "material-symbols:photo-library",
 	});
 
-	// 关于及其子菜单
+	// ⏳ 时光轴&心愿单
 	links.push({
-		name: "关于",
-		url: "#",
-		icon: "material-symbols:info",
-		children: [
-			// 打赏
-			LinkPresets.Sponsor,
+		name: "时光轴",
+		url: "/timeline/",
+		icon: "material-symbols:timeline",
+	});
 
-			// 关于页面
-			LinkPresets.About,
-		],
+	// 👩‍❤️‍👨 关于我们
+	links.push({
+		name: "关于我们",
+		url: "/about/",
+		icon: "material-symbols:person",
 	});
 
 	return { links } as NavBarConfig;
@@ -110,8 +76,7 @@ export const navBarSearchConfig: NavBarSearchConfig = {
 };
 
 // ============================================================================
-// 链接预设 - 可自由自定义导航栏链接的名称、图标和URL
-// Link Presets - Allows free customization of the name, icon, and URL of navigation bar links
+// 链接预设（保留兼容性）
 // ============================================================================
 export const LinkPresets: Record<string, NavBarLink> = {
 	Home: {
@@ -119,89 +84,22 @@ export const LinkPresets: Record<string, NavBarLink> = {
 		url: "/",
 		icon: "material-symbols:home",
 	},
-	Dynamic: {
-		name: "动态",
-		url: "/dynamic/",
-		icon: "material-symbols:forum-rounded",
-		pageKey: "dynamic",
+	About: {
+		name: "关于我们",
+		url: "/about/",
+		icon: "material-symbols:person",
 	},
-	Archive: {
-		name: "归档",
-		url: "/archive/",
-		icon: "material-symbols:archive",
-	},
-	Categories: {
-		name: "分类",
-		url: "/categories/",
-		icon: "material-symbols:folder-open-rounded",
-	},
-	Tags: {
-		name: "标签",
-		url: "/tags/",
-		icon: "material-symbols:tag-rounded",
-	},
-	Friends: {
-		name: "友链",
-		url: "/friends/",
-		icon: "material-symbols:link-2-rounded",
-		pageKey: "friends",
-	},
-	Sponsor: {
-		name: "打赏",
-		url: "/sponsor/",
-		icon: "material-symbols:favorite",
-		pageKey: "sponsor",
+	Gallery: {
+		name: "回忆相册",
+		url: "/gallery/",
+		icon: "material-symbols:photo-library",
+		pageKey: "gallery",
 	},
 	Guestbook: {
 		name: "留言",
 		url: "/guestbook/",
 		icon: "material-symbols:chat",
 		pageKey: "guestbook",
-	},
-	About: {
-		name: "关于我",
-		url: "/about/",
-		icon: "material-symbols:person",
-	},
-	Bangumi: {
-		name: "番组计划",
-		url: "/bangumi/",
-		icon: "material-symbols:movie",
-		pageKey: "bangumi",
-	},
-	VNDB: {
-		name: "VNDB",
-		url: "/vndb/",
-		icon: "material-symbols:movie",
-		pageKey: "vndb",
-	},
-	Gallery: {
-		name: "相册",
-		url: "/gallery/",
-		icon: "material-symbols:photo-library",
-		pageKey: "gallery",
-	},
-	Anime: {
-		name: "追番",
-		url: "/anime/",
-		icon: "material-symbols:live-tv",
-		pageKey: "anime",
-	},
-	Booknav: {
-		name: "书签导航",
-		url: "/booknav/",
-		icon: "material-symbols:bookmarks",
-		pageKey: "booknav",
-	},
-	Timeline: {
-		name: "时间轴",
-		url: "/timeline/",
-		icon: "material-symbols:timeline",
-	},
-	BucketList: {
-		name: "心愿清单",
-		url: "/bucketlist/",
-		icon: "material-symbols:checklist",
 	},
 };
 

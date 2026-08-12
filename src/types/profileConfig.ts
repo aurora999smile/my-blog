@@ -8,4 +8,10 @@ export type ProfileConfig = {
 		icon: string;
 		showName?: boolean;
 	}[];
+	// 双人卡片配置（可选）
+	partner?: {
+		avatar?: string;
+		name: string;
+		bio?: string;
+	};
 };
