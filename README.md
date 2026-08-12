@@ -1,946 +1,329 @@
+
+<img src="./docs/images/1131.png" width = "350" height = "500" alt="Firefly" align=right />
+
 <div align="center">
-  <img src="https://fastly.jsdelivr.net/gh/D-Sketon/blog-img/icon.png"/>
-  <h1>astro-theme-reimu</h1>
-  <img alt="version" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2FD-Sketon%2Fastro-theme-reimu%2Fraw%2Fmain%2Fpackage.json&query=%24.version&label=version">
-  <img alt="GitHub License" src="https://img.shields.io/github/license/D-Sketon/astro-theme-reimu">
-  <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/D-Sketon/astro-theme-reimu">
 
-💘 博麗 霊夢 💘
+# 流萤 / Firefly 
+> 一款清新美观的 Astro 静态博客主题模板
+> 
+> ![Node.js >= 22](https://img.shields.io/badge/node.js-%3E%3D22-brightgreen) 
+![pnpm >= 9](https://img.shields.io/badge/pnpm-%3E%3D9-blue)
+![Astro](https://img.shields.io/badge/Astro-7.2.0-orange)
+![TypeScript](https://img.shields.io/badge/TypeScript-6.0.3-blue)
+>
+> [![Stars](https://img.shields.io/github/stars/CuteLeaf/Firefly?style=social)](https://github.com/CuteLeaf/Firefly/stargazers)
+[![Forks](https://img.shields.io/github/forks/CuteLeaf/Firefly?style=social)](https://github.com/CuteLeaf/Firefly/network/members)
+[![Issues](https://img.shields.io/github/issues/CuteLeaf/Firefly)](https://github.com/CuteLeaf/Firefly/issues)
+> 
+> [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Z8Z41NQALY)
+>
+> **QQ交流群：[1087127207](https://qm.qq.com/q/ZGsFa8qX2G)**
+> 
+> ![GitHub License](https://img.shields.io/github/license/CuteLeaf/Firefly)
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/CuteLeaf/Firefly)
+[![爱发电打赏](https://img.shields.io/badge/爱发电-打赏作者-ff69b4.svg)](https://ifdian.net/a/cuteleaf)
 
-[演示网站](https://d-sketon.github.io/astro-theme-reimu)
-
-简体中文 | [English](https://github.com/D-Sketon/astro-theme-reimu/blob/main/README.en.md)
-
-<img src="https://cdn.jsdelivr.net/gh/D-Sketon/astro-theme-reimu/screenshot.png"/>
 </div>
 
+
 ---
+📖 README：
+**[简体中文](README.md)** | **[繁體中文](docs/README.zh-TW.md)** | **[English](README.en.md)** | **[日本語](docs/README.ja.md)** 
 
-本主题是 [hexo-theme-reimu](https://github.com/D-Sketon/hexo-theme-reimu) 的 Astro 移植版本，一款博丽灵梦风格的 Astro 主题。
+🚀 快速指南：
+[**🖥️在线预览**](https://firefly.cuteleaf.cn/) /
+[**📝使用文档**](https://docs-firefly.cuteleaf.cn/) /
+[**🍀我的博客**](https://blog.cuteleaf.cn) 
 
-| framework                    | repository                                                         | version                                                                                                                                                                                     | stars                                                                                              |
-| ---------------------------- | ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| [Hexo](https://hexo.io/)     | [hexo-theme-reimu](https://github.com/D-Sketon/hexo-theme-reimu)   | <img alt="version" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2FD-Sketon%2Fhexo-theme-reimu%2Fraw%2Fmain%2Fpackage.json&query=%24.version&label=version">  | <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/D-Sketon/hexo-theme-reimu">  |
-| [Hugo](https://gohugo.io)    | [hugo-theme-reimu](https://github.com/D-Sketon/hugo-theme-reimu)   | <img alt="version" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2FD-Sketon%2Fhugo-theme-reimu%2Fraw%2Fmain%2Fpackage.json&query=%24.version&label=version">  | <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/D-Sketon/hugo-theme-reimu">  |
-| [Astro](https://astro.build) | [astro-theme-reimu](https://github.com/D-Sketon/astro-theme-reimu) | <img alt="version" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2FD-Sketon%2Fastro-theme-reimu%2Fraw%2Fmain%2Fpackage.json&query=%24.version&label=version"> | <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/D-Sketon/astro-theme-reimu"> |
+⚡ 静态站点生成: 基于 Astro 的超快加载速度和 SEO 优化
 
-**欢迎提交 ISSUE 和 PR！**
+🎨 现代化设计: 简洁美观的界面，支持自定义主题色
 
-## 特性
+📱 移动友好: 完美的响应式体验，移动端专项优化
 
-### 基础功能
+🔧 高度可配置: 大部分功能模块均可通过配置文件自定义
 
-- ✨ 完整的博客功能
-- 📱 响应式布局
-- 🌙 暗黑模式支持
-- 🌍 多语言支持（i18n）
+<table width="100%" align="center">
+  <tr>
+    <td colspan="3" align="center">
+      <img src="./docs/images/1.webp" >
+      <br>横幅模式</td>
+    </td>
+  </tr>
+  <tr>
+    <td align="center"><img src="./docs/images/3.webp" width="300"><br>透明模式</td>
+    <td align="center"><img src="./docs/images/2.webp" width="300"><br>全屏壁纸模式</td>
+    <td align="center"><img src="./docs/images/4.webp" width="300"><br>纯色模式</td>
+  </tr>
+</table>
+<img alt="Lighthouse" src="./docs/images/Lighthouse.png" />
 
-### 代码与数学
+>[!TIP]
+>
+>Firefly 是一款基于 Astro 框架和 Fuwari 模板开发的清新美观且现代化个人博客主题模板，专为技术爱好者和内容创作者设计。该主题融合了现代 Web 技术栈，提供了丰富的功能模块和高度可定制的界面，让您能够轻松打造出专业且美观的个人博客网站。
+>
+>**如果你参考或使用了 Firefly 的组件设计和相关代码，请注明来自 Firefly。**
+>
+>Firefly 也保留了原版 fuwari 的布局，可根据自己的喜好在配置文件中自由切换。
+>
+>**更多布局配置及演示请查看：[Firefly 布局系统详解](https://firefly.cuteleaf.cn/posts/guide/firefly-layout-system/)**
+>
+>Firefly 支持 i18n 多语言 UI，但除了简体中文，其他语言均为 AI 翻译转换，如有错误，欢迎提交 [Pull Request](https://github.com/CuteLeaf/Firefly/pulls) 修正。
 
-- 🖥️ 代码高亮（基于 Expressive Code）
-- ➗ KaTeX 数学公式支持
-- 📊 Mermaid 流程图支持
+## ✨ 功能特性
 
-### 搜索与评论
+### 核心功能
 
-- 🔍 本地搜索（基于 Fuse.js）
-- 💬 多评论系统支持：
-  - Valine
-  - Waline
-  - Twikoo
-  - Gitalk
-  - Giscus
-  - Disqus
-  - Utterances
+- [x] **Astro + Tailwind CSS** - 基于现代技术栈的超快静态站点生成
+- [x] **流畅动画** - Swup 页面过渡动画，提供丝滑的浏览体验
+- [x] **响应式设计** - 完美适配桌面端、平板和移动设备
+- [x] **多语言支持** - i18n 国际化，UI 支持简体中文、繁体中文、英文、日文、俄语、韩文
+- [x] **全文搜索** - 基于 Pagefind 的客户端搜索，支持文章内容索引
 
-### 统计与分析
+### 个性化
+- [x] **动态侧边栏** - 支持配置单侧边栏、双侧边栏
+- [x] **文章布局** - 支持配置(单列)列表、网格(多列/瀑布流)布局
+- [x] **字体管理** - 支持自定义字体，丰富的字体选择器
+- [x] **页脚配置** - HTML 内容注入，完全自定义
+- [x] **亮暗色模式** - 支持亮色/暗色/跟随系统三种模式
+- [x] **导航栏自定义** - Logo、标题、链接全面自定义
+- [x] **壁纸模式切换** - 横幅壁纸、全屏壁纸、全屏透明壁纸、纯色背景
+- [x] **主题色自定义** - 360° 色相调节
 
-- 📊 文章阅读统计（Waline/Valine）
-- 👥 访客统计（不蒜子）
-- 📈 网站分析：
-  - 百度统计
-  - Google Analytics
-  - Clarity
+如果你有好用的功能和优化，请提交 [Pull Request](https://github.com/CuteLeaf/Firefly/pulls)
 
-### 媒体与交互功能
+## 🚀 快速开始
 
-- 🖼️ 图片懒加载
-- 🖼️ 图片灯箱
-- ⚡ 加载动画
-- 🎨 AOS 滚动动画
-- 🎯 鼠标特效
+### 环境要求
 
-### 导航与结构
+- Node.js ≥ 22
+- pnpm ≥ 9
 
-- 📑 目录导航
-- 📰 RSS 订阅
+### 本地开发部署
 
-### 设计与自定义
+1. **克隆仓库：**
+   ```bash
+   git clone https://github.com/Cuteleaf/Firefly.git
+   cd Firefly
+   ```
+   
+   **先 [Fork](https://github.com/CuteLeaf/Firefly/fork) 到自己仓库再克隆（推荐），记得先点 Star 再 Fork 哦！**
 
-- 🎨 图标支持（FontAwesome、Iconify）
-- 🔗 内置 MDX 组件：
-  - 内部链接
-  - 外部链接
-  - 友情链接
-  - 热力图
-  - 标签轮盘
-  - 标签页
-  - 照片墙
-- ©️ 文章版权声明
-- 🌐 响应式头图（srcset）
-- 🎨 分享卡片功能
+   ```bash
+   git clone https://github.com/you-github-name/Firefly.git
+   cd Firefly
+   ```
+3. **安装依赖：**
+   ```bash
+   # 如果没有安装 pnpm，先安装
+   npm install -g pnpm
+   
+   # 安装项目依赖
+   pnpm install
+   ```
 
-## 安装与使用
+4. **配置博客：**
+   - 编辑 `src/config/` 目录下的配置文件自定义博客设置
 
-### 快速开始
+5. **启动开发服务器：**
+   ```bash
+   pnpm dev
+   ```
+   博客将在 `http://localhost:4321` 可用
+
+### 平台托管部署
+- **参考[官方指南](https://docs.astro.build/zh-cn/guides/deploy/)将博客部署至 Vercel, Netlify, Cloudflare Pages, EdgeOne Pages 等。**
+- **Vercel**、**Netlify** 等主流平台自动部署，会根据环境自动选择适配器。
+
+   框架预设： `Astro`
+
+   根目录： `./`
+
+   输出目录： `dist`
+
+   构建命令： `pnpm run build`
+
+   安装命令： `pnpm install`
+
+   [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/CuteLeaf/Firefly&project-name=Firefly&repository-name=Firefly)
+   [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/CuteLeaf/Firefly)
+
+## 📖 配置说明
+
+> 📚 **详细配置文档**: 查看 [Firefly 使用文档](https://docs-firefly.cuteleaf.cn/) 获取完整的配置指南
+
+### 设置网站语言
+
+要设置博客的默认语言，请编辑 `src/config/siteConfig.ts` 文件：
+
+```typescript
+// 定义站点语言
+const SITE_LANG = "zh_CN";
+```
+
+**支持的语言代码：**
+- `zh_CN` - 简体中文
+- `zh_TW` - 繁体中文
+- `en` - 英文
+- `ja` - 日文
+- `ru` - 俄文
+- `ko` - 韩文
+
+### 配置文件结构
+
+```
+src/
+├── config/
+│   ├── index.ts                  # 配置索引文件
+│   ├── siteConfig.ts             # 站点基础配置
+│   ├── analyticsConfig.ts        # 统计分析配置
+│   ├── announcementConfig.ts     # 公告配置
+│   ├── backgroundWallpaper.ts    # 背景壁纸配置
+│   ├── commentConfig.ts          # 评论系统配置
+│   ├── coverImageConfig.ts       # 封面图配置
+│   ├── displaySettingsConfig.ts  # 设置面板配置
+│   ├── dynamicConfig.ts          # 动态页面配置
+│   ├── effectsConfig.ts          # 动画特效配置（樱花等）
+│   ├── expressiveCodeConfig.ts   # 代码高亮配置
+│   ├── fontConfig.ts             # 字体配置
+│   ├── footerConfig.ts           # 页脚配置
+│   ├── friendsConfig.ts          # 友链配置
+│   ├── galleryConfig.ts          # 相册配置
+│   ├── licenseConfig.ts          # 许可证配置
+│   ├── musicConfig.ts            # 音乐播放器配置
+│   ├── navBarConfig.ts           # 导航栏配置
+│   ├── pioConfig.ts              # 看板娘配置
+│   ├── mermaidConfig.ts          # Mermaid 图表配置
+│   ├── plantumlConfig.ts         # PlantUML 图表配置
+│   ├── profileConfig.ts          # 用户资料配置
+│   ├── sidebarConfig.ts          # 侧边栏布局配置
+│   └── sponsorConfig.ts          # 打赏配置
+```
+
+## ⚙️ 文章 Frontmatter
+
+```yaml
+---
+title: My First Blog Post
+published: 2023-09-09
+description: This is the first post of my new Astro blog.
+image: ./cover.jpg  # 或使用 "api" 来启用随机封面图
+tags: [Foo, Bar]
+category: Front-end
+draft: false
+lang: zh-CN      # 仅当文章语言与 `siteConfig.ts` 中的网站语言不同时需要设置
+pinned: false    # 置顶
+comment: true    # 是否允许评论
+---
+```
+
+## 动态
+
+动态文件保存在 `src/content/dynamic/` 中，一个 Markdown 文件对应一条动态。可以使用快捷命令创建：
 
 ```bash
-# 克隆仓库
-git clone https://github.com/D-Sketon/astro-theme-reimu.git
-cd astro-theme-reimu
-
-# 安装依赖（推荐使用 pnpm）
-pnpm install
-
-# 启动开发服务器
-pnpm run dev
-
-# 构建生产版本
-pnpm run build
-
-# 预览构建结果
-pnpm run preview
+pnpm new-d 今天心情不错，出去吃了一顿火锅
 ```
 
-### 项目结构
+`pnpm new-dynamic <content>` 也可以使用，和 `new-d` 完全等价。
 
-```plain
-/
-├── public/              # 静态资源
-│   ├── images/
-│   │   ├── banner.webp
-│   │   ├── banner-800w.webp
-│   │   ├── banner-600w.webp
-│   │   ├── favicon.ico
-│   │   ├── reimu.png
-│   │   └── taichi.png
-│   └── robots.txt
-├── src/
-│   ├── components/      # Astro/React 组件
-│   ├── content/         # 内容集合
-│   │   └── blog/        # 博客文章
-│   ├── content.config.ts# 内容集合配置
-│   ├── hooks/           # React Hooks
-│   ├── languages/       # i18n 语言文件
-│   │   ├── en.ts
-│   │   ├── zh-cn.ts
-│   │   ├── zh-tw.ts
-│   │   └── ja.ts
-│   ├── layouts/         # 页面布局
-│   ├── pages/           # 页面路由
-│   │   ├── about.mdx    # 关于页面
-│   │   ├── archives/    # 归档页面
-│   │   ├── blog/        # 博客页面
-│   │   ├── categories/  # 分类页面
-│   │   ├── tags/        # 标签页面
-│   │   └── rss.xml.js   # RSS 订阅
-│   ├── plugins/         # Markdown 插件
-│   ├── styles/          # 样式文件
-│   ├── utils/           # 工具函数
-│   ├── config.ts        # 主题配置文件
-│   ├── covers.ts        # 封面图配置
-│   └── env.d.ts
-├── astro.config.mjs     # Astro 配置
-├── package.json
-└── tsconfig.json
-```
-
-任何静态资产（如图像）都可以放置在 `public/` 目录中。  
-所有博客文章都存储在目录 `src/content/blog` 中，关于页面存储在目录 `src/pages` 中。
-
-## 配置
-
-编辑 `src/config.ts` 进行主题配置：
-
-<details>
-<summary>基本配置</summary>
-
-##### 站点信息
-
-```typescript
-export default {
-  site: {
-    title: "My Blog", // 站点标题
-    subtitle: "My Blog Subtitle", // 站点副标题
-    description: "Your blog description", // 站点描述
-    keywords: "blog, astro, theme", // 关键词
-    author: "Your Name", // 作者名称
-    language: "zh-CN", // 站点语言 (en | zh-CN | zh-TW | ja)
-  },
-};
-```
-
-##### 侧边栏
-
-```typescript
-export default {
-  sidebar: {
-    avatar: "/images/avatar.webp", // 头像路径（相对于 public 目录）
-    position: "right", // 侧边栏位置 (left | right)
-  },
-};
-```
-
-##### 侧边栏小部件
-
-```typescript
-export default {
-  widgets: [
-    "category", // 分类
-    "tag", // 标签
-    "tagcloud", // 标签云
-    "archive", // 归档
-    "recent_posts", // 最近文章
-  ],
-};
-```
-
-##### 菜单导航
-
-```typescript
-export default {
-  menu: [
-    { name: "home", url: "/" }, // 菜单项名称（对应 i18n 翻译）
-    { name: "archives", url: "/archives" },
-    { name: "about", url: "/about" },
-  ],
-};
-```
-
-##### 头图与封面
-
-###### 头图配置
-
-```typescript
-export default {
-  banner: "/images/banner.webp", // 头图路径
-
-  // 响应式头图（可选）
-  banner_srcset: {
-    enable: true,
-    srcset: [
-      { src: "/images/banner-600w.webp", media: "(max-width: 479px)" },
-      { src: "/images/banner-800w.webp", media: "(max-width: 799px)" },
-      { src: "/images/banner.webp", media: "(min-width: 800px)" },
-    ],
-  },
-};
-```
-
-###### 封面配置
-
-在 `src/covers.ts` 中配置随机封面图列表：
-
-```typescript
-export default [
-  "https://example.com/cover1.webp",
-  "https://example.com/cover2.webp",
-  "https://example.com/cover3.webp",
-];
-```
-
-文章封面显示逻辑：
-
-1. 如果文章 Front Matter 中指定了 `cover`，则使用指定的封面
-2. 否则从 `covers.ts` 中随机选择一张
-3. 如果 `covers.ts` 为空，则使用头图作为封面
-
-##### 页脚
-
-```typescript
-export default {
-  footer: {
-    since: 2020, // 起始年份（会显示为 2020 - 当前年份）
-    powered: true, // 是否显示 "Powered by Astro"
-    count: true, // 是否显示文章统计
-    busuanzi: true, // 是否启用不蒜子访客统计
-    icp: {
-      icpnumber: "", // ICP备案号
-      beian: "", // 网安备案号
-      recordcode: "", // 网安备案链接中的recordcode参数
-    },
-    moe_icp: {
-      icpnumber: "", // 萌国ICP备案号
-    },
-  },
-};
-```
-
-##### 社交链接
-
-```typescript
-export default {
-  social: {
-    email: "mailto:your@email.com",
-    github: "https://github.com/yourname",
-    twitter: "https://twitter.com/yourname",
-    facebook: "https://www.facebook.com/yourname",
-    // 更多社交平台...
-  },
-};
-```
-
-</details>
-
-<details>
-<summary>评论系统</summary>
-
-##### Waline
-
-[Waline](https://waline.js.org/) 是一个简洁、安全的评论系统。
-
-```typescript
-export default {
-  waline: {
-    enable: true,
-    serverURL: "your-server-url", // Waline 服务器地址
-    lang: "zh-CN", // 语言
-    locale: {}, // 自定义语言包
-    emoji: [
-      // 表情包
-      "https://unpkg.com/@waline/emojis@1.2.0/weibo",
-      "https://unpkg.com/@waline/emojis@1.2.0/bilibili",
-    ],
-    meta: ["nick", "mail", "link"], // 评论者信息
-    requiredMeta: ["nick", "mail"], // 必填项
-    wordLimit: 0, // 评论字数限制（0 为不限制）
-    pageSize: 10, // 每页评论数
-    pageview: true, // 是否启用浏览量统计
-  },
-};
-```
-
-##### Valine
-
-[Valine](https://valine.js.org/) 是一个基于 LeanCloud 的快速、简洁且高效的无后端评论系统。
-
-```typescript
-export default {
-  valine: {
-    enable: true,
-    appId: "your-app-id", // LeanCloud App ID
-    appKey: "your-app-key", // LeanCloud App Key
-    pageSize: 10, // 评论列表分页
-    avatar: "mp", // Gravatar 头像风格
-    lang: "zh-cn", // 语言
-    placeholder: "Just go go", // 评论框占位文本
-    guest_info: "nick,mail,link", // 评论者信息字段
-    recordIP: true, // 是否记录评论者 IP
-    highlight: true, // 是否高亮代码块
-    visitor: false, // 是否显示访问量
-    serverURLs: "", // LeanCloud 服务器地址（可选）
-  },
-};
-```
-
-##### Gitalk
-
-[Gitalk](https://gitalk.github.io/) 是一个基于 GitHub Issue 和 Preact 的现代评论组件。
-
-```typescript
-export default {
-  gitalk: {
-    enable: true,
-    clientID: "your-client-id", // GitHub Application Client ID
-    clientSecret: "your-client-secret", // GitHub Application Client Secret
-    repo: "your-repo", // 存储评论的 GitHub 仓库
-    owner: "your-name", // 仓库所有者
-    admin: ["your-name"], // 仓库管理员（可以是数组）
-  },
-};
-```
-
-##### Giscus
-
-[Giscus](https://giscus.app/zh-CN) 是一个基于 GitHub Discussion 的评论系统。
-
-```typescript
-export default {
-  giscus: {
-    enable: true,
-    repo: "your-username/your-repo", // GitHub 仓库
-    repoId: "your-repo-id", // 仓库 ID
-    category: "your-category", // 分类名称
-    categoryId: "your-category-id", // 分类 ID
-    mapping: "pathname", // 评论映射方式
-    strict: 0, // 严格模式
-    reactionsEnabled: 1, // 启用反应
-    emitMetadata: 0, // 发出元数据
-    inputPosition: "bottom", // 输入框位置
-  },
-};
-```
-
-##### Twikoo
-
-[Twikoo](https://twikoo.js.org/) 支持多种部署方式的评论系统。
-
-```typescript
-export default {
-  twikoo: {
-    enable: true,
-    envId: "your-env-id", // 腾讯云环境填 envId；Vercel 环境填地址（https://xxx.vercel.app）
-    region: "", // 腾讯云区域（可选）
-  },
-};
-```
-
-##### Utterances
-
-[Utterances](https://utteranc.es/) 是一个基于 GitHub Issue 的轻量级评论组件。
-
-```typescript
-export default {
-  utterances: {
-    enable: true,
-    repo: "owner/repo", // GitHub 仓库
-    issue_term: "title", // Issue 映射方式
-    theme: "github-light", // 主题
-  },
-};
-```
-
-##### Disqus
-
-[Disqus](https://disqus.com/) 是一个全球性的评论系统。
-
-```typescript
-export default {
-  disqus: {
-    enable: true,
-    shortname: "your-shortname", // Disqus shortname
-    count: true, // 是否启用评论数量统计
-  },
-};
-```
-
-</details>
-
-<details>
-<summary>分析与统计</summary>
-
-##### 网站分析
-
-```typescript
-export default {
-  analytics: {
-    baidu_analytics: "your-baidu-id", // 百度统计 ID
-    google_analytics: "your-ga-id", // Google Analytics ID
-    clarity: "your-clarity-id", // Microsoft Clarity ID
-  },
-};
-```
-
-</details>
-
-<details>
-<summary>其他功能</summary>
-
-##### 版权声明
-
-```typescript
-export default {
-  copyright: {
-    enable: true, // 是否启用版权声明
-    content: {
-      author: true, // 显示作者
-      link: true, // 显示文章链接
-      title: true, // 显示文章标题
-      date: false, // 显示发布日期
-      updated: false, // 显示更新日期
-      license: true, // 显示许可协议
-      license_type: "by-nc-sa", // 许可协议类型
-    },
-  },
-};
-```
-
-##### 加载动画
-
-```typescript
-export default {
-  preloader: {
-    enable: true, // 是否启用加载动画
-    text: "少女祈祷中...", // 加载文本
-    rotate: true, // 图标是否旋转
-  },
-};
-```
-
-##### 友链
-
-```typescript
-export default {
-  friend: [
-    {
-      name: "Friend Name", // 友链名称
-      url: "https://friend.com", // 友链地址
-      desc: "Description", // 友链描述
-      avatar: "/avatar.webp", // 友链头像
-    },
-  ],
-};
-```
-
-##### 首页分类卡片
-
-```typescript
-export default {
-  home_categories: {
-    enable: true, // 是否启用首页分类卡片
-    content: [
-      {
-        categories: "Blog", // 分类名称
-        cover: "/images/category-cover.webp", // 分类封面（可选）
-      },
-    ],
-  },
-};
-```
-
-##### 分享功能
-
-```typescript
-export default {
-  share: [
-    "weibo", // 微博
-    "qq", // QQ
-    "weixin", // 微信
-    // "twitter",  // Twitter
-    // "facebook", // Facebook
-    // "linkedin", // LinkedIn
-    // "reddit",   // Reddit
-  ],
-};
-```
-
-##### 赞助功能
-
-```typescript
-export default {
-  sponsor: {
-    enable: false, // 是否启用赞助功能
-    qr: [
-      { name: "支付宝", src: "/sponsor/alipay.jpg" },
-      { name: "微信", src: "/sponsor/wechat.png" },
-    ],
-  },
-};
-```
-
-##### 文章过期提醒
-
-```typescript
-export default {
-  outdate: {
-    enable: false, // 是否启用文章过期提醒
-    daysAgo: 180, // 多少天前的文章算过期
-  },
-};
-```
-
-##### 鼠标特效
-
-```typescript
-export default {
-  firework: {
-    enable: true, // 是否启用鼠标特效
-    disable_on_mobile: false, // 是否在移动端禁用
-    options: {
-      // 详细配置请参考 mouse-firework 文档
-    },
-  },
-};
-```
-
-##### 三角徽标
-
-```typescript
-export default {
-  triangle_badge: {
-    enable: false,
-    type: "github", // 图标类型
-    link: "https://github.com/yourname",
-  },
-};
-```
-
-</details>
-
-## 写作
-
-<details>
-<summary>创建文章</summary>
-
-在 `src/content/blog/` 目录下创建 `.md` 或 `.mdx` 文件：
-
-```markdown
+```yaml
 ---
-title: 你的文章标题
-description: 文章描述
-pubDate: 2024-01-01
-updatedDate: 2024-01-02
-cover: https://example.com/cover.jpg
-tags:
-  - tag1
-  - tag2
-categories:
-  - category1
+published: 2026-07-15 16:15:29
+pinned: true  # 置顶
+location: China # 位置
 ---
 
-你的文章内容...
+动态内容可以使用 Markdown 语法。
 ```
 
-</details>
-
-<details>
-<summary>Front Matter 字段</summary>
+也支持对接 [Memos](https://www.usememos.com/) 作为数据源，在 `src/config/dynamicConfig.ts` 中配置 `memos` 选项即可实时获取 Memos 动态，支持置顶同步和图片附件展示。详见[动态文档](https://docs-firefly.cuteleaf.cn/zh/guide/dynamic.html)。
 
-#### Front Matter 字段
-
-| 字段        | 描述                   | 类型                 | 必填 | 默认值  |
-| ----------- | ---------------------- | -------------------- | ---- | ------- |
-| title       | 文章标题               | `string`             | 是   | -       |
-| description | 文章描述（用于 SEO）   | `string`             | 是   | -       |
-| keywords    | 文章关键词（用于 SEO） | `string[] \| string` | 否   | `[]`    |
-| pubDate     | 发布日期               | `Date`               | 是   | -       |
-| updatedDate | 更新日期               | `Date`               | 否   | -       |
-| cover       | 封面图 URL             | `string`             | 否   | -       |
-| tags        | 标签列表               | `string[]`           | 否   | `[]`    |
-| categories  | 分类列表               | `string[]`           | 否   | `[]`    |
-| excerpt     | 文章摘要               | `string`             | 否   | -       |
-| comment     | 是否启用评论系统       | `boolean`            | 否   | `true`  |
-| author      | 文章作者               | `string`             | 否   | -       |
-| toc         | 是否显示目录           | `boolean`            | 否   | `true`  |
-| sponsor     | 是否显示赞助信息       | `boolean`            | 否   | -       |
-| copyright   | 是否显示版权声明       | `boolean`            | 否   | -       |
-| share       | 是否显示分享按钮       | `boolean`            | 否   | -       |
-| outdated    | 文章是否过期           | `boolean`            | 否   | `false` |
+## 🧩 Markdown 扩展语法
 
-</details>
+除了 Astro 默认支持的 [GitHub Flavored Markdown](https://github.github.com/gfm/) 之外，还包含了一些额外的 Markdown 功能：
 
-<details>
-<summary>数学公式</summary>
+- 提醒块（Admonitions） - 支持 GitHub, Obsidian, VitePress, Docusaurus 四种风格主题配置 ([预览和用法](https://firefly.cuteleaf.cn/posts/markdown-extended/))
+- GitHub 仓库卡片 ([预览和用法](https://firefly.cuteleaf.cn/posts/markdown-extended/))
+- 基于 Expressive Code 的增强代码块 ([预览](http://firefly.cuteleaf.cn/posts/code-examples/) / [文档](https://expressive-code.com/))
 
-主题内置了 KaTeX 支持，可以直接在 Markdown 中使用 LaTeX 语法：
+## 🧞 指令
 
-#### 行内公式
+下列指令均需要在项目根目录执行：
 
-```markdown
-行内公式：$E = mc^2$
-```
+| Command                    | Action                                 |
+| :------------------------- | :------------------------------------- |
+| `pnpm install`             | 安装依赖                               |
+| `pnpm dev`                 | 在 `localhost:4321` 启动本地开发服务器 |
+| `pnpm build`               | 构建网站至 `./dist/`                   |
+| `pnpm preview`             | 本地预览已构建的网站                   |
+| `pnpm check`               | 检查代码中的错误                       |
+| `pnpm format`              | 使用 Biome 格式化您的代码              |
+| `pnpm new-post <filename>` | 创建新文章                             |
+| `pnpm new-d <content>`     | 创建一条动态                           |
+| `pnpm new-dynamic <content>` | 创建一条动态（完整命令）              |
+| `pnpm astro ...`           | 执行 `astro add`, `astro check` 等指令 |
+| `pnpm astro --help`        | 显示 Astro CLI 帮助                    |
 
-#### 块级公式
+## 🙏 致谢
 
-```markdown
-块级公式：
+非常感谢 [saicaca](https://github.com/saicaca) 开发的 [fuwari](https://github.com/saicaca/fuwari) 模板，Firefly 就是基于这个模板二次开发
 
-$$
-\frac{n!}{k!(n-k)!} = \binom{n}{k}
-$$
-```
+流萤部分相关图片素材版权归游戏 [《崩坏：星穹铁道》](https://sr.mihoyo.com/) 开发商 [米哈游](https://www.mihoyo.com/) 所有
 
-</details>
+### 技术栈
 
-<details>
-<summary>Mermaid 流程图</summary>
+- [Astro](https://astro.build) 
+- [Tailwind CSS](https://tailwindcss.com) 
+- [Iconify](https://iconify.design)
 
-主题内置了 Mermaid 支持：
+### 灵感项目
 
-````markdown
-```mermaid
-graph TD
-    A[开始] --> B[处理]
-    B --> C{判断}
-    C -->|是| D[结束]
-    C -->|否| B
-```
-````
+- [fuwari](https://github.com/saicaca/fuwari)
+- [hexo-theme-shoka](https://github.com/amehime/hexo-theme-shoka)
+- [astro-koharu](https://github.com/cosZone/astro-koharu)
+- [Mizuki](https://github.com/matsuzaka-yuki/Mizuki)
 
-</details>
+### 其他参考
+- 博主`霞葉`的 [Bangumi 收藏](https://kasuha.com/posts/fuwari-enhance-ep2/) 页面组件
+- 哔哩哔哩up主 `公公的日常` 的Q版 [流萤看板娘 Spine 切片数据](https://www.bilibili.com/video/BV1fuVzzdE5y) 
 
-<details>
-<summary>代码块</summary>
+## 📝 许可协议
 
-代码块基于 [Expressive Code](https://expressive-code.com/) 实现，支持：
+本项目遵循 [MIT license](https://mit-license.org/) 开源协议，详细查看 [LICENSE](./LICENSE) 文件
 
-- 语法高亮
-- 行号显示
-- 代码折叠（使用 `collapse` 标记）
-- 代码复制按钮
+最初 Fork 自 [saicaca/fuwari](https://github.com/saicaca/fuwari)，感谢原作者的贡献
 
-#### 基本代码块
+**版权声明：**
+- Copyright (c) 2024 [saicaca](https://github.com/saicaca) - [fuwari](https://github.com/saicaca/fuwari)
+- Copyright (c) 2025 [CuteLeaf](https://github.com/CuteLeaf) - [Firefly](https://github.com/CuteLeaf/Firefly) 
 
-````markdown
-```javascript
-function hello() {
-  console.log("Hello, World!");
-}
-```
-````
+根据 MIT 开源协议，你可以自由使用、修改、分发代码，但需保留上述版权声明。
 
-#### 代码折叠
+## 🍀 贡献者
 
-````markdown
-```js collapse={1-5, 12-14}
-// 这些行默认折叠
-function example() {
-  console.log("Hello");
-}
+感谢以下贡献者对本项目做出的贡献，如有问题或建议，请提交 [Issue](https://github.com/CuteLeaf/Firefly/issues) 或 [Pull Request](https://github.com/CuteLeaf/Firefly/pulls)。
 
-// 这些行默认展开
-const result = example();
-```
-````
+><a href="https://github.com/CuteLeaf/Firefly/graphs/contributors">
+>  <img src="https://contrib.rocks/image?repo=CuteLeaf/Firefly" />
+></a>
 
-</details>
+感谢以下贡献者对原项目 [fuwari](https://github.com/saicaca/fuwari) 做出的贡献，为本项目奠定了基础。
 
-<details>
-<summary>内置组件</summary>
+><a href="https://github.com/saicaca/fuwari/graphs/contributors">
+>  <img src="https://contrib.rocks/image?repo=saicaca/fuwari" />
+></a>
 
-主题提供了丰富的内置 MDX 组件：
+## ⭐ Star History
 
-#### 链接组件
+[![Star History Chart](https://api.star-history.com/svg?repos=CuteLeaf/Firefly&type=Date)](https://star-history.com/#CuteLeaf/Firefly&Date)
 
-##### 内部链接
 
-用于在文章中创建指向其他文章的精美链接卡片，支持显示封面图和摘要。适合在文章中推荐相关内容或创建内容导航。
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
 
-```markdown
-<Link slug="post-slug" title="文章标题" cover="封面URL" />
-```
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
 
-**Props:**
-
-- `slug` (`string`, 可选): 文章 slug
-- `url` (`string`, 可选): 外部链接 URL
-- `title` (`string`, 可选): 链接标题
-- `cover` (`string | "auto"`, 可选): 封面图片
-
-##### 外部链接
-
-用于创建指向外部网站的精美链接卡片，自动识别为外部链接。适合在文章中分享外部资源或推荐其他网站。
-
-```markdown
-<Link url="https://github.com" title="GitHub" cover="auto" />
-```
-
-#### 内容组件
-
-##### 友情链接卡片
-
-展示友情链接列表，每个链接包含头像、名称和描述。适合在关于页面或专门的友链页面展示合作伙伴网站。
-
-友情链接卡片使用全局配置中的友链列表：
-
-```markdown
-<FriendCard />
-```
-
-**Props:** 无
-
-##### 热力图卡片
-
-基于访问量数据生成热力图可视化，展示内容活跃度。适合在个人主页或数据统计页面展示访问数据。
-
-```markdown
-<HeatMapCard levelStandard="1000,5000,10000" />
-```
-
-**Props:**
-
-- `levelStandard` (`string`, 可选): 等级标准，默认 "1000,5000,10000"
-
-##### 标签轮盘
-
-以轮盘形式展示标签列表，用户可以点击随机选择标签。适合在标签页面或侧边栏增加趣味性交互。
-
-```markdown
-<TagRoulette tags="标签1,标签2,标签3" icon="🎯" />
-```
-
-**Props:**
-
-- `tags` (`string`, 可选): 标签列表，用逗号分隔，默认预设标签
-- `icon` (`string`, 可选): 按钮图标，默认 "🕹️"
-
-#### 布局组件
-
-##### 标签页
-
-创建多标签页界面，可以在同一区域展示不同内容。适合展示相关内容的多个方面或选项卡式导航。
-
-```markdown
-<Tabs active={1} center={false}>
-  <TabItem title="Tab 1">内容1</TabItem>
-  <TabItem title="Tab 2">内容2</TabItem>
-</Tabs>
-```
-
-**Tabs Props:**
-
-- `active` (`number`, 可选): 默认激活的标签页，默认 1
-- `center` (`boolean`, 可选): 是否居中，默认 false
-
-**TabItem Props:**
-
-- `title` (`string`, 必需): 标签页标题
-
-##### 折叠详情
-
-创建可展开/折叠的内容区域，可以隐藏次要信息。适合展示详细说明、代码示例或长文本内容。
-
-```markdown
-<Details summary="点击展开">
-  这里是折叠的内容
-</Details>
-```
-
-**Props:**
-
-- `summary` (`string`, 必需): 折叠标题
-
-##### 网格布局
-
-创建响应式网格布局，可以灵活排列内容。适合展示卡片列表、图片网格或等宽内容块。
-
-```markdown
-<Grid col={3}>
-  <GridCell>单元格1</GridCell>
-  <GridCell>单元格2</GridCell>
-  <GridCell>单元格3</GridCell>
-</Grid>
-```
-
-**Grid Props:**
-
-- `width` (`number`, 可选): 最小宽度，默认 240
-- `col` (`number`, 可选): 列数，优先于 width
-
-**GridCell Props:** 无
-
-##### 照片墙
-
-创建精美的图片展示墙，支持灯箱效果。适合在文章中展示多张图片或创建图片集页面。
-
-```markdown
-<Gallery>
-  ![图片1](image1.jpg)
-  ![图片2](image2.jpg)
-</Gallery>
-```
-
-**Props:** 无
-
-##### 警告块
-
-创建不同类型的提示信息框，支持多种样式。适合突出重要信息、警告或提示用户注意。
-
-```markdown
-<AlertBlockquote type="info" title="提示">
-  这是一个信息提示
-</AlertBlockquote>
-
-<AlertBlockquote type="warning">
-  这是一个警告提示
-</AlertBlockquote>
-
-<AlertBlockquote type="danger">
-  这是一个危险提示
-</AlertBlockquote>
-```
-
-**Props:**
-
-- `type` (`"info" | "warning" | "danger" | "tip" | "important"`, 可选): 警告类型，默认 "info"
-- `title` (`string`, 可选): 自定义标题，默认使用 type 大写
-
-</details>
-
-## 部署
-
-### 配置站点信息
-
-编辑 `astro.config.mjs`：
-
-```javascript
-export default defineConfig({
-  site: "https://yourusername.github.io", // 你的站点 URL
-  base: "/your-repo-name", // 子路径（如部署到 GitHub Pages）
-  // ...
-});
-```
-
-### GitHub Pages
-
-1. 构建项目：
-
-```bash
-pnpm run build
-```
-
-2. 将 `dist/` 目录部署到 GitHub Pages
-
-或者配置 GitHub Actions 自动部署（推荐），具体可参考 [GitHub Pages](https://docs.astro.build/zh-cn/guides/deploy/github/)。
-
-### Vercel / Netlify
-
-这些平台会自动识别 Astro 项目：
-
-1. 连接 GitHub 仓库
-2. 平台会自动检测并使用正确的构建命令
-3. 点击部署即可，具体请参考 [Netlify](https://docs.astro.build/zh-cn/guides/deploy/netlify/) 或 [Vercel](https://docs.astro.build/zh-cn/guides/deploy/vercel/) 文档。
-
-## 开发
-
-### 添加新页面
-
-在 `src/pages/` 目录下创建文件即可，Astro 会自动处理路由。
-
-### 修改样式
-
-样式文件位于 `src/styles/` 目录：
-
-- `base.stylus` - 基础样式
-- `global.css` - 全局样式
-- `markdown.stylus` - Markdown 渲染样式
-- 其他样式文件...
-
-### i18n
-
-语言文件位于 `src/languages/` 目录，支持的语言：
-
-- `en.ts` - English
-- `zh-cn.ts` - 简体中文
-- `zh-tw.ts` - 繁体中文
-- `ja.ts` - 日本語
-
-要添加新语言，创建对应的 `.ts` 文件并参考现有文件的结构。
-
-## 贡献者
-
-[![](https://contributors-img.web.app/image?repo=D-Sketon/astro-theme-reimu)](https://github.com/D-Sketon/astro-theme-reimu/graphs/contributors)
-
-## 赞助 💘
-
-[爱发电-afdian](https://afdian.com/a/dsketon)
-
-## Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=D-Sketon/astro-theme-reimu&type=date&legend=top-left)](https://www.star-history.com/#D-Sketon/astro-theme-reimu&type=date&legend=top-left)
-
-## 许可
-
-MIT
-
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FD-Sketon%2Fastro-theme-reimu.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FD-Sketon%2Fastro-theme-reimu?ref=badge_large)
+<!-- ALL-CONTRIBUTORS-LIST:END -->

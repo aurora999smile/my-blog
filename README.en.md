@@ -1,942 +1,330 @@
+
+<img src="./docs/images/1131.png" width = "350" height = "500" alt="Firefly" align=right />
+
 <div align="center">
-  <img src="https://fastly.jsdelivr.net/gh/D-Sketon/blog-img/icon.png"/>
-  <h1>astro-theme-reimu</h1>
-  <img alt="version" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2FD-Sketon%2Fastro-theme-reimu%2Fraw%2Fmain%2Fpackage.json&query=%24.version&label=version">
-  <img alt="GitHub License" src="https://img.shields.io/github/license/D-Sketon/astro-theme-reimu">
-  <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/D-Sketon/astro-theme-reimu">
 
-💘 Hakurei Reimu 💘
-
-[Demo](https://d-sketon.github.io/astro-theme-reimu)
-
-[简体中文](https://github.com/D-Sketon/astro-theme-reimu/blob/main/README.md) | English
-
-<img src="https://cdn.jsdelivr.net/gh/D-Sketon/astro-theme-reimu/screenshot.png"/>
+# Firefly
+> A Fresh and Beautiful Astro Static Blog Theme Template
+> 
+> ![Node.js >= 22](https://img.shields.io/badge/node.js-%3E%3D22-brightgreen) 
+![pnpm >= 9](https://img.shields.io/badge/pnpm-%3E%3D9-blue)
+![Astro](https://img.shields.io/badge/Astro-7.2.0-orange)
+![TypeScript](https://img.shields.io/badge/TypeScript-6.0.3-blue)
+>
+> [![Stars](https://img.shields.io/github/stars/CuteLeaf/Firefly?style=social)](https://github.com/CuteLeaf/Firefly/stargazers)
+[![Forks](https://img.shields.io/github/forks/CuteLeaf/Firefly?style=social)](https://github.com/CuteLeaf/Firefly/network/members)
+[![Issues](https://img.shields.io/github/issues/CuteLeaf/Firefly)](https://github.com/CuteLeaf/Firefly/issues)
+> 
+> [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Z8Z41NQALY)
+>
+> **QQ交流群：[1087127207](https://qm.qq.com/q/ZGsFa8qX2G)**
+> 
+> ![GitHub License](https://img.shields.io/github/license/CuteLeaf/Firefly)
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/CuteLeaf/Firefly)
+[![Afdian Sponsor](https://img.shields.io/badge/Afdian-Sponsor%20Author-ff69b4.svg)](https://ifdian.net/a/cuteleaf)
 </div>
 
+
 ---
+📖 README:
+**[简体中文](README.md)** | **[繁體中文](docs/README.zh-TW.md)** | **[English](README.en.md)** | **[日本語](docs/README.ja.md)**
 
-This theme is an Astro port of [hexo-theme-reimu](https://github.com/D-Sketon/hexo-theme-reimu), a Hakurei Reimu style Astro theme.
+🚀 Quick Guide:
+[**🖥️Live Demo**](https://firefly.cuteleaf.cn/) /
+[**📝Documentation**](https://docs-firefly.cuteleaf.cn/) /
+[**🍀My Blog**](https://blog.cuteleaf.cn)
 
-| framework                    | repository                                                         | version                                                                                                                                                                                     | stars                                                                                              |
-| ---------------------------- | ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| [Hexo](https://hexo.io/)     | [hexo-theme-reimu](https://github.com/D-Sketon/hexo-theme-reimu)   | <img alt="version" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2FD-Sketon%2Fhexo-theme-reimu%2Fraw%2Fmain%2Fpackage.json&query=%24.version&label=version">  | <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/D-Sketon/hexo-theme-reimu">  |
-| [Hugo](https://gohugo.io)    | [hugo-theme-reimu](https://github.com/D-Sketon/hugo-theme-reimu)   | <img alt="version" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2FD-Sketon%2Fhugo-theme-reimu%2Fraw%2Fmain%2Fpackage.json&query=%24.version&label=version">  | <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/D-Sketon/hugo-theme-reimu">  |
-| [Astro](https://astro.build) | [astro-theme-reimu](https://github.com/D-Sketon/astro-theme-reimu) | <img alt="version" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2FD-Sketon%2Fastro-theme-reimu%2Fraw%2Fmain%2Fpackage.json&query=%24.version&label=version"> | <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/D-Sketon/astro-theme-reimu"> |
+⚡ Static Site Generation: Ultra-fast loading speed and SEO optimization based on Astro
 
-**Issues and PRs are welcome!**
+🎨 Modern Design: Clean and beautiful interface with customizable theme colors
 
-## Features
+📱 Mobile-Friendly: Perfect responsive experience with mobile-specific optimizations
+
+🔧 Highly Configurable: Most features can be customized through configuration files
+
+<table width="100%" align="center">
+  <tr>
+    <td colspan="3" align="center">
+      <img src="./docs/images/1.webp" >
+      <br>Banner Mode</td>
+    </td>
+  </tr>
+  <tr>
+    <td align="center"><img src="./docs/images/3.webp" width="300"><br>Overlay Mode</td>
+    <td align="center"><img src="./docs/images/2.webp" width="300"><br>Fullscreen Wallpaper Mode</td>
+    <td align="center"><img src="./docs/images/4.webp" width="300"><br>Solid Color Mode</td>
+  </tr>
+</table>
+<img alt="Lighthouse" src="./docs/images/Lighthouse.png" />
+
+>[!TIP]
+>
+>Firefly is a fresh, beautiful, and modern personal blog theme template based on the Astro framework and the Fuwari template, designed for tech enthusiasts and content creators. It integrates a modern web tech stack, offering rich feature modules and a highly customizable interface so you can easily build a professional and visually appealing personal blog.
+>
+>**If you refer to or use Firefly component design and related code, please credit Firefly.**
+>
+>Firefly also preserves the original fuwari layout, which can be freely switched in the configuration file according to your preferences.
+>
+>**For more layout configurations and demos, please see: [Firefly Layout System Details](https://firefly.cuteleaf.cn/posts/guide/firefly-layout-system/)**
+>
+>Firefly supports i18n multilingual UI, but except for Simplified Chinese, other languages are AI-translated. If you find any errors, feel free to submit a [Pull Request](https://github.com/CuteLeaf/Firefly/pulls) to help improve them.
+
+## ✨ Features
 
 ### Core Features
 
-- ✨ Complete blog functionality
-- 📱 Responsive layout
-- 🌙 Dark mode support
-- 🌍 Multi-language support (i18n)
+- [x] **Astro + Tailwind CSS** - Ultra-fast static site generation based on modern tech stack
+- [x] **Smooth Animations** - Swup page transition animations for silky smooth browsing experience
+- [x] **Responsive Design** - Perfect adaptation for desktop, tablet and mobile devices
+- [x] **Multi-language Support** - i18n internationalization ui, supports Simplified Chinese, Traditional Chinese, English, Japanese, Russian, Korean
+- [x] **Full-text Search** - Client-side search based on Pagefind, supports article content indexing.
 
-### Code & Math
+### Personalization
+- [x] **Dynamic Sidebar** - Supports single sidebar, dual sidebar configuration
+- [x] **Article Layout** - Supports list (single column) and grid (multi-column/masonry) layout
+- [x] **Font Management** - Custom font support with rich font selector
+- [x] **Footer Configuration** - HTML content injection, fully customizable
+- [x] **Light/Dark Mode** - Supports light/dark/system three modes
+- [x] **Navbar Customization** - Logo, title, links fully customizable
+- [x] **Wallpaper Mode Switching** - Banner wallpaper, fullscreen wallpaper, fullscreen transparent wallpaper, solid background
+- [x] **Theme Color Customization** - 360° hue adjustment
 
-- 🖥️ Code highlighting (based on Expressive Code)
-- ➗ KaTeX math formula support
-- 📊 Mermaid flowchart support
 
-### Search & Comments
+If you have useful features and optimizations, please submit a [Pull Request](https://github.com/CuteLeaf/Firefly/pulls)
 
-- 🔍 Local search (based on Fuse.js)
-- 💬 Multiple comment systems support:
-  - Valine
-  - Waline
-  - Twikoo
-  - Gitalk
-  - Giscus
-  - Disqus
-  - Utterances
+## 🚀 Quick Start
 
-### Statistics & Analytics
+### Requirements
 
-- 📊 Article reading statistics (Waline/Valine)
-- 👥 Visitor statistics (busuanzi)
-- 📈 Website analytics:
-  - Baidu Analytics
-  - Google Analytics
-  - Clarity
+- Node.js ≥ 22
+- pnpm ≥ 9
 
-### Media & Interaction
+### Local Development
 
-- 🖼️ Image lazy loading
-- 🖼️ Image lightbox
-- ⚡ Loading animation
-- 🎨 AOS scroll animation
-- 🎯 Mouse effects
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/Cuteleaf/Firefly.git
+   cd Firefly
+   ```
+   
+   **First [Fork](https://github.com/CuteLeaf/Firefly/fork) to your own repository then clone (recommended). Don't forget to Star before Fork!**
 
-### Navigation & Structure
+   ```bash
+   git clone https://github.com/you-github-name/Firefly.git
+   cd Firefly
+   ```
+3. **Install dependencies:**
+   ```bash
+   # Install pnpm if not installed
+   npm install -g pnpm
+   
+   # Install project dependencies
+   pnpm install
+   ```
 
-- 📑 Table of contents
-- 📰 RSS feed
+4. **Configure blog:**
+   - Edit configuration files in `src/config/` directory to customize blog settings
 
-### Design & Customization
+5. **Start development server:**
+   ```bash
+   pnpm dev
+   ```
+   Blog will be available at `http://localhost:4321`
 
-- 🎨 Icon support (FontAwesome, Iconify)
-- 🔗 Built-in MDX components:
-  - Internal links
-  - External links
-  - Friend links
-  - Heat map
-  - Tag roulette
-  - Tabs
-  - Photo gallery
-- ©️ Article copyright notice
-- 🌐 Responsive banner (srcset)
-- 🎨 Share card functionality
+### Platform Hosting Deployment
+- **Refer to the [official guide](https://docs.astro.build/en/guides/deploy/) to deploy your blog to Vercel, Netlify, Cloudflare Pages, EdgeOne Pages, etc.**
+- **Vercel**, **Netlify** and other major platforms auto-deploy, automatically selecting the appropriate adapter based on the environment.
 
-## Installation & Usage
+   Framework Preset: `Astro`
 
-### Quick Start
+   Root Directory: `./`
+
+   Output Directory: `dist`
+
+   Build Command: `pnpm run build`
+
+   Install Command: `pnpm install`
+
+   [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/CuteLeaf/Firefly&project-name=Firefly&repository-name=Firefly)
+   [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/CuteLeaf/Firefly)
+
+## 📖 Configuration
+
+> 📚 **Detailed Configuration Documentation**: Check [Firefly Documentation](https://docs-firefly.cuteleaf.cn/) for complete configuration guide
+
+### Setting Website Language
+
+To set the default language for your blog, edit the `src/config/siteConfig.ts` file:
+
+```typescript
+// Define site language
+const SITE_LANG = "zh_CN";
+```
+
+**Supported language codes:**
+- `zh_CN` - Simplified Chinese
+- `zh_TW` - Traditional Chinese
+- `en` - English
+- `ja` - Japanese
+- `ru` - Russian
+- `ko` - Korean
+
+### Configuration File Structure
+
+```
+src/
+├── config/
+│   ├── index.ts                  # Configuration index file
+│   ├── siteConfig.ts             # Site basic configuration
+│   ├── analyticsConfig.ts        # Analytics configuration
+│   ├── announcementConfig.ts     # Announcement configuration
+│   ├── backgroundWallpaper.ts    # Background wallpaper configuration
+│   ├── commentConfig.ts          # Comment system configuration
+│   ├── coverImageConfig.ts       # Cover image configuration
+│   ├── displaySettingsConfig.ts  # Settings panel configuration
+│   ├── dynamicConfig.ts          # Moments page configuration
+│   ├── effectsConfig.ts          # Animation effects config (sakura, etc.)
+│   ├── expressiveCodeConfig.ts   # Code highlighting configuration
+│   ├── fontConfig.ts             # Font configuration
+│   ├── footerConfig.ts           # Footer configuration
+│   ├── friendsConfig.ts          # Friend links configuration
+│   ├── galleryConfig.ts          # Gallery configuration
+│   ├── licenseConfig.ts          # License configuration
+│   ├── musicConfig.ts            # Music player configuration
+│   ├── navBarConfig.ts           # Navbar configuration
+│   ├── pioConfig.ts              # Mascot configuration
+│   ├── mermaidConfig.ts          # Mermaid diagram configuration
+│   ├── plantumlConfig.ts         # PlantUML diagram configuration
+│   ├── profileConfig.ts          # User profile configuration
+│   ├── sidebarConfig.ts          # Sidebar layout configuration
+│   └── sponsorConfig.ts          # Sponsor configuration
+```
+
+
+## ⚙️ Article Frontmatter
+
+```yaml
+---
+title: My First Blog Post
+published: 2023-09-09
+description: This is the first post of my new Astro blog.
+image: ./cover.jpg  # Or use "api" to enable random cover images
+tags: [Foo, Bar]
+category: Front-end
+draft: false
+lang: zh-CN      # Only set when article language differs from site language in `siteConfig.ts`
+pinned: false    # Pin article
+comment: true    # Enable comments
+---
+```
+
+## Moments
+
+Moment files are stored in `src/content/dynamic/`, with one Markdown file per moment. Create one with:
 
 ```bash
-# Clone the repository
-git clone https://github.com/D-Sketon/astro-theme-reimu.git
-cd astro-theme-reimu
-
-# Install dependencies (pnpm recommended)
-pnpm install
-
-# Start development server
-pnpm run dev
-
-# Build for production
-pnpm run build
-
-# Preview build
-pnpm run preview
+pnpm new-d The weather is lovely today
 ```
 
-### Project Structure
+`pnpm new-dynamic <content>` is the equivalent full command.
 
-```plain
-/
-├── public/              # Static assets
-│   ├── images/
-│   │   ├── banner.webp
-│   │   ├── banner-800w.webp
-│   │   ├── banner-600w.webp
-│   │   ├── favicon.ico
-│   │   ├── reimu.png
-│   │   └── taichi.png
-│   └── robots.txt
-├── src/
-│   ├── components/      # Astro/React components
-│   ├── content/         # Content collections
-│   │   └── blog/        # Blog posts
-│   ├── content.config.ts# Content collection config
-│   ├── hooks/           # React Hooks
-│   ├── languages/       # i18n language files
-│   │   ├── en.ts
-│   │   ├── zh-cn.ts
-│   │   ├── zh-tw.ts
-│   │   └── ja.ts
-│   ├── layouts/         # Page layouts
-│   ├── pages/           # Page routes
-│   │   ├── about.mdx    # About page
-│   │   ├── archives/    # Archive pages
-│   │   ├── blog/        # Blog pages
-│   │   ├── categories/  # Category pages
-│   │   ├── tags/        # Tag pages
-│   │   └── rss.xml.js   # RSS feed
-│   ├── plugins/         # Markdown plugins
-│   ├── styles/          # Style files
-│   ├── utils/           # Utility functions
-│   ├── config.ts        # Theme config
-│   ├── covers.ts        # Cover images config
-│   └── env.d.ts
-├── astro.config.mjs     # Astro config
-├── package.json
-└── tsconfig.json
-```
-
-Any static assets (such as images) can be placed in the `public/` directory.  
-All blog posts are stored in the `src/content/blog` directory, and the about page is stored in the `src/pages` directory.
-
-## Configuration
-
-Edit `src/config.ts` to configure the theme:
-
-<details>
-<summary>Basic Configuration</summary>
-
-##### Site Information
-
-```typescript
-export default {
-  site: {
-    title: "My Blog", // Site title
-    subtitle: "My Blog Subtitle", // Site subtitle
-    description: "Your blog description", // Site description
-    keywords: "blog, astro, theme", // Keywords
-    author: "Your Name", // Author name
-    language: "zh-CN", // Site language (en | zh-CN | zh-TW | ja)
-  },
-};
-```
-
-##### Sidebar
-
-```typescript
-export default {
-  sidebar: {
-    avatar: "/images/avatar.webp", // Avatar path (relative to public directory)
-    position: "right", // Sidebar position (left | right)
-  },
-};
-```
-
-##### Sidebar Widgets
-
-```typescript
-export default {
-  widgets: [
-    "category", // Categories
-    "tag", // Tags
-    "tagcloud", // Tag cloud
-    "archive", // Archives
-    "recent_posts", // Recent posts
-  ],
-};
-```
-
-##### Navigation Menu
-
-```typescript
-export default {
-  menu: [
-    { name: "home", url: "/" }, // Menu item name (corresponds to i18n translation)
-    { name: "archives", url: "/archives" },
-    { name: "about", url: "/about" },
-  ],
-};
-```
-
-##### Banner & Cover
-
-###### Banner Configuration
-
-```typescript
-export default {
-  banner: "/images/banner.webp", // Banner path
-
-  // Responsive banner (optional)
-  banner_srcset: {
-    enable: true,
-    srcset: [
-      { src: "/images/banner-600w.webp", media: "(max-width: 479px)" },
-      { src: "/images/banner-800w.webp", media: "(max-width: 799px)" },
-      { src: "/images/banner.webp", media: "(min-width: 800px)" },
-    ],
-  },
-};
-```
-
-###### Cover Configuration
-
-Configure random cover image list in `src/covers.ts`:
-
-```typescript
-export default [
-  "https://example.com/cover1.webp",
-  "https://example.com/cover2.webp",
-  "https://example.com/cover3.webp",
-];
-```
-
-Article cover display logic:
-
-1. If `cover` is specified in the article's Front Matter, use the specified cover
-2. Otherwise, randomly select one from `covers.ts`
-3. If `covers.ts` is empty, use the banner as cover
-
-##### Footer
-
-```typescript
-export default {
-  footer: {
-    since: 2020, // Start year (displays as 2020 - current year)
-    powered: true, // Show "Powered by Astro"
-    count: true, // Show article statistics
-    busuanzi: true, // Enable busuanzi visitor statistics
-    icp: {
-      icpnumber: "", // ICP license number
-      beian: "", // Public security record number
-      recordcode: "", // Public security record link recordcode parameter
-    },
-    moe_icp: {
-      icpnumber: "", // Moe ICP license number
-    },
-  },
-};
-```
-
-##### Social Links
-
-```typescript
-export default {
-  social: {
-    email: "mailto:your@email.com",
-    github: "https://github.com/yourname",
-    twitter: "https://twitter.com/yourname",
-    facebook: "https://www.facebook.com/yourname",
-    // More social platforms...
-  },
-};
-```
-
-</details>
-
-<details>
-<summary>Comment Systems</summary>
-
-##### Waline
-
-[Waline](https://waline.js.org/) is a simple and secure comment system.
-
-```typescript
-export default {
-  waline: {
-    enable: true,
-    serverURL: "your-server-url", // Waline server URL
-    lang: "zh-CN", // Language
-    locale: {}, // Custom locale
-    emoji: [
-      // Emoji sets
-      "https://unpkg.com/@waline/emojis@1.2.0/weibo",
-      "https://unpkg.com/@waline/emojis@1.2.0/bilibili",
-    ],
-    meta: ["nick", "mail", "link"], // Commenter info
-    requiredMeta: ["nick", "mail"], // Required fields
-    wordLimit: 0, // Comment word limit (0 for unlimited)
-    pageSize: 10, // Comments per page
-    pageview: true, // Enable pageview statistics
-  },
-};
-```
-
-##### Valine
-
-[Valine](https://valine.js.org/) is a fast, simple and efficient serverless comment system based on LeanCloud.
-
-```typescript
-export default {
-  valine: {
-    enable: true,
-    appId: "your-app-id", // LeanCloud App ID
-    appKey: "your-app-key", // LeanCloud App Key
-    pageSize: 10, // Comment list pagination
-    avatar: "mp", // Gravatar avatar style
-    lang: "zh-cn", // Language
-    placeholder: "Just go go", // Comment box placeholder
-    guest_info: "nick,mail,link", // Commenter info fields
-    recordIP: true, // Record commenter IP
-    highlight: true, // Highlight code blocks
-    visitor: false, // Show visitor count
-    serverURLs: "", // LeanCloud server URL (optional)
-  },
-};
-```
-
-##### Gitalk
-
-[Gitalk](https://gitalk.github.io/) is a modern comment component based on GitHub Issue and Preact.
-
-```typescript
-export default {
-  gitalk: {
-    enable: true,
-    clientID: "your-client-id", // GitHub Application Client ID
-    clientSecret: "your-client-secret", // GitHub Application Client Secret
-    repo: "your-repo", // GitHub repository for storing comments
-    owner: "your-name", // Repository owner
-    admin: ["your-name"], // Repository admin (can be array)
-  },
-};
-```
-
-##### Giscus
-
-[Giscus](https://giscus.app/en) is a comment system powered by GitHub Discussions.
-
-```typescript
-export default {
-  giscus: {
-    enable: true,
-    repo: "your-username/your-repo", // GitHub repository
-    repoId: "your-repo-id", // Repository ID
-    category: "your-category", // Category name
-    categoryId: "your-category-id", // Category ID
-    mapping: "pathname", // Comment mapping
-    strict: 0, // Strict mode
-    reactionsEnabled: 1, // Enable reactions
-    emitMetadata: 0, // Emit metadata
-    inputPosition: "bottom", // Input position
-  },
-};
-```
-
-##### Twikoo
-
-[Twikoo](https://twikoo.js.org/) supports multiple deployment methods for comment systems.
-
-```typescript
-export default {
-  twikoo: {
-    enable: true,
-    envId: "your-env-id", // Tencent Cloud environment ID；Vercel environment uses address (https://xxx.vercel.app)
-    region: "", // Tencent Cloud region (optional)
-  },
-};
-```
-
-##### Utterances
-
-[Utterances](https://utteranc.es/) is a lightweight comment component based on GitHub Issues.
-
-```typescript
-export default {
-  utterances: {
-    enable: true,
-    repo: "owner/repo", // GitHub repository
-    issue_term: "title", // Issue mapping
-    theme: "github-light", // Theme
-  },
-};
-```
-
-##### Disqus
-
-[Disqus](https://disqus.com/) is a global comment system.
-
-```typescript
-export default {
-  disqus: {
-    enable: true,
-    shortname: "your-shortname", // Disqus shortname
-    count: true, // Enable comment count statistics
-  },
-};
-```
-
-</details>
-
-<details>
-<summary>Analytics & Statistics</summary>
-
-##### Website Analytics
-
-```typescript
-export default {
-  analytics: {
-    baidu_analytics: "your-baidu-id", // Baidu Analytics ID
-    google_analytics: "your-ga-id", // Google Analytics ID
-    clarity: "your-clarity-id", // Microsoft Clarity ID
-  },
-};
-```
-
-</details>
-
-<details>
-<summary>Other Features</summary>
-
-##### Copyright Notice
-
-```typescript
-export default {
-  copyright: {
-    enable: true, // Enable copyright notice
-    content: {
-      author: true, // Show author
-      link: true, // Show article link
-      title: true, // Show article title
-      date: false, // Show publish date
-      updated: false, // Show update date
-      license: true, // Show license
-      license_type: "by-nc-sa", // License type
-    },
-  },
-};
-```
-
-##### Loading Animation
-
-```typescript
-export default {
-  preloader: {
-    enable: true, // Enable loading animation
-    text: "少女祈祷中...", // Loading text
-    rotate: true, // Rotate icon
-  },
-};
-```
-
-##### Friend Links
-
-```typescript
-export default {
-  friend: [
-    {
-      name: "Friend Name", // Friend name
-      url: "https://friend.com", // Friend URL
-      desc: "Description", // Friend description
-      avatar: "/avatar.webp", // Friend avatar
-    },
-  ],
-};
-```
-
-##### Home Category Cards
-
-```typescript
-export default {
-  home_categories: {
-    enable: true, // Enable home category cards
-    content: [
-      {
-        categories: "Blog", // Category name
-        cover: "/images/category-cover.webp", // Category cover (optional)
-      },
-    ],
-  },
-};
-```
-
-##### Share Functionality
-
-```typescript
-export default {
-  share: [
-    "weibo", // Weibo
-    "qq", // QQ
-    "weixin", // WeChat
-    // "twitter",  // Twitter
-    // "facebook", // Facebook
-    // "linkedin", // LinkedIn
-    // "reddit",   // Reddit
-  ],
-};
-```
-
-##### Sponsorship
-
-```typescript
-export default {
-  sponsor: {
-    enable: false, // Enable sponsorship
-    qr: [
-      { name: "Alipay", src: "/sponsor/alipay.jpg" },
-      { name: "WeChat", src: "/sponsor/wechat.png" },
-    ],
-  },
-};
-```
-
-##### Article Expiration Reminder
-
-```typescript
-export default {
-  outdate: {
-    enable: false, // Enable article expiration reminder
-    daysAgo: 180, // Days after which articles are considered expired
-  },
-};
-```
-
-##### Mouse Effects
-
-```typescript
-export default {
-  firework: {
-    enable: true, // Enable mouse effects
-    disable_on_mobile: false, // Disable on mobile
-    options: {
-      // Detailed configuration please refer to mouse-firework documentation
-    },
-  },
-};
-```
-
-##### Triangle Badge
-
-```typescript
-export default {
-  triangle_badge: {
-    enable: false,
-    type: "github", // Icon type
-    link: "https://github.com/yourname",
-  },
-};
-```
-
-</details>
-
-## Writing
-
-<details>
-<summary>Creating Articles</summary>
-
-Create `.md` or `.mdx` files in the `src/content/blog/` directory:
-
-```markdown
+```yaml
 ---
-title: Your Article Title
-description: Article description
-pubDate: 2024-01-01
-updatedDate: 2024-01-02
-cover: https://example.com/cover.jpg
-tags:
-  - tag1
-  - tag2
-categories:
-  - category1
+published: 2026-07-15 16:15:29
+pinned: true  # Pin article
+location: China # Location
 ---
 
-Your article content...
+Moment content supports Markdown.
 ```
 
-</details>
-
-<details>
-<summary>Front Matter Fields</summary>
+Also supports [Memos](https://www.usememos.com/) as a data source. Configure the `memos` option in `src/config/dynamicConfig.ts` to fetch Memos moments in real-time, with pinned sync and image attachment support. See [Moments documentation](https://docs-firefly.cuteleaf.cn/en/guide/dynamic.html).
 
-#### Front Matter Fields
-
-| Field       | Description                   | Type                 | Required | Default |
-| ----------- | ----------------------------- | -------------------- | -------- | ------- |
-| title       | Article title                 | `string`             | Yes      | -       |
-| description | Article description (for SEO) | `string`             | Yes      | -       |
-| keywords    | Article keywords (for SEO)    | `string[] \| string` | No       | `[]`    |
-| pubDate     | Publish date                  | `Date`               | Yes      | -       |
-| updatedDate | Update date                   | `Date`               | No       | -       |
-| cover       | Cover image URL               | `string`             | No       | -       |
-| tags        | Tag list                      | `string[]`           | No       | `[]`    |
-| categories  | Category list                 | `string[]`           | No       | `[]`    |
-| excerpt     | Article excerpt               | `string`             | No       | -       |
-| comment     | Enable comment system         | `boolean`            | No       | `true`  |
-| author      | Article author                | `string`             | No       | -       |
-| toc         | Show table of contents        | `boolean`            | No       | `true`  |
-| sponsor     | Show sponsorship info         | `boolean`            | No       | -       |
-| copyright   | Show copyright notice         | `boolean`            | No       | -       |
-| share       | Show share buttons            | `boolean`            | No       | -       |
-| outdated    | Article is outdated           | `boolean`            | No       | `false` |
+## 📖 Markdown Extensions
 
-</details>
+In addition to the default [GitHub Flavored Markdown](https://github.github.com/gfm/) support in Astro, there are some additional Markdown features:
 
-<details>
-<summary>Math Formulas</summary>
+- Admonitions - Supports configuration for GitHub, Obsidian, VitePress, and Docusaurus themes ([Preview and Usage](https://firefly.cuteleaf.cn/posts/markdown-extended/))
+- GitHub Repository Cards ([Preview and Usage](https://firefly.cuteleaf.cn/posts/markdown-extended/))
+- Enhanced Code Blocks based on Expressive Code ([Preview](http://firefly.cuteleaf.cn/posts/code-examples/) / [Documentation](https://expressive-code.com/))
 
-The theme has built-in KaTeX support. You can use LaTeX syntax directly in Markdown:
+## 🧞 Commands
 
-#### Inline Formula
+All commands need to be executed in the project root directory:
 
-```markdown
-Inline formula: $E = mc^2$
-```
+| Command                    | Action                                              |
+|:---------------------------|:----------------------------------------------------|
+| `pnpm install`             | Install dependencies                                |
+| `pnpm dev`                 | Start local development server at `localhost:4321`  |
+| `pnpm build`               | Build site to `./dist/`                             |
+| `pnpm preview`             | Preview built site locally                          |
+| `pnpm check`               | Check for errors in code                            |
+| `pnpm format`              | Format your code using Biome                        |
+| `pnpm new-post <filename>` | Create new article                                  |
+| `pnpm new-d <content>`     | Create a new moment                                 |
+| `pnpm new-dynamic <content>` | Create a new moment (full command)                |
+| `pnpm astro ...`           | Execute `astro add`, `astro check` and other commands |
+| `pnpm astro --help`        | Display Astro CLI help                              |
 
-#### Block Formula
+## 🙏 Acknowledgments
 
-```markdown
-Block formula:
+Special thanks to [saicaca](https://github.com/saicaca) for developing the [fuwari](https://github.com/saicaca/fuwari) template, which Firefly is based on for secondary development.
 
-$$
-\frac{n!}{k!(n-k)!} = \binom{n}{k}
-$$
-```
+The copyright of Firefly-related image assets belongs to [miHoYo](https://www.mihoyo.com/), the developer of the game ["Honkai: Star Rail"](https://sr.mihoyo.com/).
 
-</details>
+### Tech Stack
 
-<details>
-<summary>Mermaid Flowcharts</summary>
+- [Astro](https://astro.build) 
+- [Tailwind CSS](https://tailwindcss.com) 
+- [Iconify](https://iconify.design)
 
-The theme has built-in Mermaid support:
+### Inspiration Projects
 
-````markdown
-```mermaid
-graph TD
-    A[Start] --> B[Process]
-    B --> C{Decision}
-    C -->|Yes| D[End]
-    C -->|No| B
-```
-````
+- [fuwari](https://github.com/saicaca/fuwari)
+- [hexo-theme-shoka](https://github.com/amehime/hexo-theme-shoka)
+- [astro-koharu](https://github.com/cosZone/astro-koharu)
+- [Mizuki](https://github.com/matsuzaka-yuki/Mizuki)
 
-</details>
+### Other References
+- Blogger `霞葉` [Bangumi Collection](https://kasuha.com/posts/fuwari-enhance-ep2/) page component
+- Bilibili creator `公公的日常` Q-version [Firefly Mascot Spine Model](https://www.bilibili.com/video/BV1fuVzzdE5y)
 
-<details>
-<summary>Code Blocks</summary>
+## 📝 License
 
-Code blocks are implemented based on [Expressive Code](https://expressive-code.com/), supporting:
+This project is licensed under the [MIT license](https://mit-license.org/). See the [LICENSE](./LICENSE) file for details.
 
-- Syntax highlighting
-- Line numbers
-- Code folding (using `collapse` marker)
-- Copy button
+Originally forked from [saicaca/fuwari](https://github.com/saicaca/fuwari). Thanks to the original author for their contributions. 
 
-#### Basic Code Block
+**Copyright Notice:**
+- Copyright (c) 2024 [saicaca](https://github.com/saicaca) - [fuwari](https://github.com/saicaca/fuwari)
+- Copyright (c) 2025 [CuteLeaf](https://github.com/CuteLeaf) - [Firefly](https://github.com/CuteLeaf/Firefly)
 
-````markdown
-```javascript
-function hello() {
-  console.log("Hello, World!");
-}
-```
-````
+Under the MIT license, you are free to use, modify, and distribute the code, but you must retain the above copyright notice.
 
-#### Code Folding
+## 🍀 Contributors
 
-````markdown
-```js collapse={1-5, 12-14}
-// These lines are collapsed by default
-function example() {
-  console.log("Hello");
-}
+Thanks to the following contributors for their contributions to this project. If you have any questions or suggestions, please submit an [Issue](https://github.com/CuteLeaf/Firefly/issues) or [Pull Request](https://github.com/CuteLeaf/Firefly/pulls).
 
-// These lines are expanded by default
-const result = example();
-```
-````
+><a href="https://github.com/CuteLeaf/Firefly/graphs/contributors">
+>  <img src="https://contrib.rocks/image?repo=CuteLeaf/Firefly" />
+></a>
 
-</details>
+Thanks to the following contributors for their contributions to the original project [fuwari](https://github.com/saicaca/fuwari), which laid the foundation for this project.
 
-<details>
-<summary>Built-in Components</summary>
+><a href="https://github.com/saicaca/fuwari/graphs/contributors">
+>  <img src="https://contrib.rocks/image?repo=saicaca/fuwari" />
+></a>
 
-The theme provides rich built-in MDX components:
+## ⭐ Star History
 
-#### Link Components
+[![Star History Chart](https://api.star-history.com/svg?repos=CuteLeaf/Firefly&type=Date)](https://star-history.com/#CuteLeaf/Firefly&Date)
 
-##### Internal Links
 
-Creates beautiful link cards for other articles with cover images and summaries. Suitable for recommending related content or creating content navigation within articles.
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
 
-```markdown
-<Link slug="post-slug" title="Article Title" cover="Cover URL" />
-```
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
 
-**Props:**
-
-- `slug` (`string`, optional): Article slug
-- `url` (`string`, optional): External link URL
-- `title` (`string`, optional): Link title
-- `cover` (`string | "auto"`, optional): Cover image
-
-##### External Links
-
-Creates beautiful link cards for external websites, automatically recognized as external links. Suitable for sharing external resources or recommending other websites within articles.
-
-```markdown
-<Link url="https://github.com" title="GitHub" cover="auto" />
-```
-
-#### Content Components
-
-##### Friend Link Cards
-
-Displays a list of friend links, each containing avatar, name, and description. Suitable for showcasing partner websites on about pages or dedicated friend link pages.
-
-Friend link cards use the friend link list from global configuration:
-
-```markdown
-<FriendCard />
-```
-
-**Props:** None
-
-##### Heat Map Card
-
-Generates a heat map visualization based on visit data, showing content activity. Suitable for displaying visit data on personal homepages or statistical pages.
-
-```markdown
-<HeatMapCard levelStandard="1000,5000,10000" />
-```
-
-**Props:**
-
-- `levelStandard` (`string`, optional): Level standards, default "1000,5000,10000"
-
-##### Tag Roulette
-
-Displays a tag list in roulette form, allowing users to randomly select tags by clicking. Suitable for adding fun interaction on tag pages or sidebars.
-
-```markdown
-<TagRoulette tags="tag1,tag2,tag3" icon="🎯" />
-```
-
-**Props:**
-
-- `tags` (`string`, optional): Tag list separated by commas, defaults to preset tags
-- `icon` (`string`, optional): Button icon, default "🕹️"
-
-#### Layout Components
-
-##### Tabs
-
-Creates a multi-tab interface for displaying different content in the same area. Suitable for showing multiple aspects of related content or tabbed navigation.
-
-```markdown
-<Tabs active={1} center={false}>
-  <TabItem title="Tab 1">Content 1</TabItem>
-  <TabItem title="Tab 2">Content 2</TabItem>
-</Tabs>
-```
-
-**Tabs Props:**
-
-- `active` (`number`, optional): Default active tab, default 1
-- `center` (`boolean`, optional): Center alignment, default false
-
-**TabItem Props:**
-
-- `title` (`string`, required): Tab title
-
-##### Details
-
-Creates an expandable/collapsible content area to hide secondary information. Suitable for displaying detailed explanations, code examples, or long text content.
-
-```markdown
-<Details summary="Click to expand">
-  Content here
-</Details>
-```
-
-**Props:**
-
-- `summary` (`string`, required): Collapse title
-
-##### Grid Layout
-
-Creates a responsive grid layout for flexible content arrangement. Suitable for displaying card lists, image grids, or equal-width content blocks.
-
-```markdown
-<Grid col={3}>
-  <GridCell>Cell 1</GridCell>
-  <GridCell>Cell 2</GridCell>
-  <GridCell>Cell 3</GridCell>
-</Grid>
-```
-
-**Grid Props:**
-
-- `width` (`number`, optional): Minimum width, default 240
-- `col` (`number`, optional): Number of columns, takes precedence over width
-
-**GridCell Props:** None
-
-##### Photo Gallery
-
-Creates a beautiful image display wall with lightbox effects. Suitable for displaying multiple images in articles or creating image collection pages.
-
-```markdown
-<Gallery>
-  ![Image 1](image1.jpg)
-  ![Image 2](image2.jpg)
-</Gallery>
-```
-
-**Props:** None
-
-##### Alert Block
-
-Creates different types of prompt information boxes with various styles. Suitable for highlighting important information, warnings, or prompting user attention.
-
-```markdown
-<AlertBlockquote type="info" title="Tip">
-  This is an info tip
-</AlertBlockquote>
-
-<AlertBlockquote type="warning">
-  This is a warning tip
-</AlertBlockquote>
-
-<AlertBlockquote type="danger">
-  This is a danger tip
-</AlertBlockquote>
-```
-
-**Props:**
-
-- `type` (`"info" | "warning" | "danger" | "tip" | "important"`, optional): Alert type, default "info"
-- `title` (`string`, optional): Custom title, defaults to type in uppercase
-
-</details>
-
-## Deployment
-
-### Configure Site Information
-
-Edit `astro.config.mjs`:
-
-```javascript
-export default defineConfig({
-  site: "https://yourusername.github.io", // Your site URL
-  base: "/your-repo-name", // Subpath (for GitHub Pages deployment)
-  // ...
-});
-```
-
-### GitHub Pages
-
-1. Build the project:
-
-```bash
-pnpm run build
-```
-
-2. Deploy the `dist/` directory to GitHub Pages
-
-Or configure GitHub Actions for automatic deployment (recommended). See [GitHub Pages](https://docs.astro.build/en/guides/deploy/github/) for details.
-
-### Vercel / Netlify
-
-These platforms automatically recognize Astro projects:
-
-1. Connect your GitHub repository
-2. The platform will automatically detect and use the correct build commands
-3. Click deploy. See [Netlify](https://docs.astro.build/en/guides/deploy/netlify/) or [Vercel](https://docs.astro.build/en/guides/deploy/vercel/) documentation for details.
-
-## Development
-
-### Adding New Pages
-
-Create files in the `src/pages/` directory, and Astro will automatically handle routing.
-
-### Modifying Styles
-
-Style files are located in the `src/styles/` directory:
-
-- `base.stylus` - Base styles
-- `global.css` - Global styles
-- `markdown.stylus` - Markdown rendering styles
-- Other style files...
-
-### i18n
-
-Language files are located in the `src/languages/` directory. Supported languages:
-
-- `en.ts` - English
-- `zh-cn.ts` - Simplified Chinese
-- `zh-tw.ts` - Traditional Chinese
-- `ja.ts` - Japanese
-
-To add a new language, create a corresponding `.yml` file and refer to the structure of existing files.
-
-## Contributors
-
-[![](https://contributors-img.web.app/image?repo=D-Sketon/astro-theme-reimu)](https://github.com/D-Sketon/astro-theme-reimu/graphs/contributors)
-
-## Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=D-Sketon/astro-theme-reimu&type=date&legend=top-left)](https://www.star-history.com/#D-Sketon/astro-theme-reimu&type=date&legend=top-left)
-
-## License
-
-MIT
-
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FD-Sketon%2Fastro-theme-reimu.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FD-Sketon%2Fastro-theme-reimu?ref=badge_large)
+<!-- ALL-CONTRIBUTORS-LIST:END -->
