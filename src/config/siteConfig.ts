@@ -35,9 +35,7 @@ export const siteConfig: SiteConfig = {
 	},
 
 	// 页面整体宽度（单位：rem）
-	// 数值越大可以让页面内容区域更宽
-	// 在使用单侧栏边栏时，建议调低一些宽度以获得更好的视觉效果。
-	pageWidth: 100,
+	pageWidth: 120,
 
 	// 网站Card样式配置
 	card: {
@@ -136,9 +134,9 @@ export const siteConfig: SiteConfig = {
 
 	// 文章列表布局配置
 	postListLayout: {
-		// 默认布局模式："list" 列表模式（单列布局），"grid" 网格模式（多列布局）
-		defaultMode: "list",
-		// 移动端默认布局模式，不设置则跟随 defaultMode
+		// 默认布局模式：网格模式（多列布局）
+		defaultMode: "grid",
+		// 移动端默认布局模式
 		mobileDefaultMode: "grid",
 		// 列表模式下封面图显示在哪一侧："right" 右侧，"left" 左侧
 		// 网格模式的封面固定在卡片顶部，不受此项影响
@@ -185,7 +183,7 @@ export const siteConfig: SiteConfig = {
 			// 是否开启瀑布流布局，同时有封面图和无封面图的混合文章推荐开启
 			masonry: false,
 			// 网格模式卡片最小宽度(px)，浏览器根据容器宽度自动计算列数
-			columnWidth: 320,
+			columnWidth: 280,
 			// 网格模式封面是否撑满卡片贴边
 			// true：封面顶到卡片左右和上边缘，只有上面两角是圆角
 			// false：封面按卡片内边距内缩，上、左、右留出间距，四角都是圆角

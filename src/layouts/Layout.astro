@@ -839,13 +839,27 @@ const siteLang = lang.replace("_", "-");
                 box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
   .card-base:hover {
-    box-shadow: 0 4px 20px rgba(255, 105, 180, 0.08);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 105, 180, 0.1);
+  }
+
+  /* 网格模式文章卡片：统一定律hover上浮 */
+  .grid-mode .post-card-wrapper {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .grid-mode .post-card-wrapper:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(255, 105, 180, 0.12);
   }
 
   /* 移动端：避免卡片挤压、文字错位 */
   @media (max-width: 640px) {
     .card-base {
       border-radius: 0.75rem !important;
+    }
+    .grid-mode .post-card-wrapper:hover {
+      transform: none;
     }
     /* 确保侧边栏双人卡片不溢出 */
     #left-sidebar .card-base {
