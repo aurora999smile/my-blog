@@ -1,0 +1,45 @@
+---
+import WidgetLayout from "@/components/common/WidgetLayout.astro";
+import type { WidgetComponentConfig } from "@/types/config";
+
+interface Props {
+	class?: string;
+	style?: string;
+	widgetConfig?: WidgetComponentConfig;
+}
+const { class: className, style } = Astro.props;
+---
+
+<WidgetLayout name="💬 随机语录" showTitle={true} id="random-quote" class={className} style={style}>
+  <div id="random-quote-box" class="text-sm text-neutral-600 dark:text-neutral-300 leading-relaxed italic min-h-[3rem]">
+    加载中...
+  </div>
+</WidgetLayout>
+
+<script is:inline>
+(function() {
+  var quotes = [
+    { text: "遇见你之前，我没想过结婚。", author: "zf" },
+    { text: "你笑的时候，全世界都在发光。", author: "ltt" },
+    { text: "我想和你一起慢慢变老。", author: "zf" },
+    { text: "今天的风好温柔，像你一样。", author: "ltt" },
+    { text: "你是我所有不安的解药。", author: "zf" },
+    { text: "喜欢你这件事，我打算坚持一辈子。", author: "ltt" },
+    { text: "你是我藏在心底的秘密。", author: "zf" },
+    { text: "有你的日子，连呼吸都是甜的。", author: "ltt" },
+    { text: "我想把所有温柔都留给你。", author: "zf" },
+    { text: "和你在一起的每一天都值得纪念。", author: "ltt" },
+  ];
+
+  function showRandom() {
+    var el = document.getElementById('random-quote-box');
+    if (!el) return;
+    var q = quotes[Math.floor(Math.random() * quotes.length)];
+    el.innerHTML = '<span class="text-pink-400">「</span>' + q.text + '<span class="text-pink-400">」</span><br/><span class="text-xs text-neutral-400 not-italic mt-1 block text-right">—— ' + q.author + '</span>';
+  }
+
+  showRandom();
+  // 每 10 秒自动换一条
+  setInterval(showRandom, 10000);
+})();
+</script>

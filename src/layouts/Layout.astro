@@ -9,6 +9,7 @@ import FontSetup from "@components/features/FontSetup.astro";
 import MusicManager from "@components/features/MusicManager.astro";
 import MusicPlayerView from "@components/features/MusicPlayerView.astro";
 import SakuraEffect from "@components/features/SakuraEffect.astro";
+import HeartParticles from "@components/features/HeartParticles.astro";
 import ConfigCarrier from "@components/layout/ConfigCarrier.astro";
 
 import {
@@ -629,6 +630,9 @@ const siteLang = lang.replace("_", "-");
     <!-- Sakura Effect -->
     <SakuraEffect />
 
+    <!-- Heart Particles -->
+    <HeartParticles />
+
     <!-- Fancybox Manager -->
     <FancyboxManager />
 
@@ -813,6 +817,44 @@ const siteLang = lang.replace("_", "-");
     }
 
     /* 我们的纪事 / 短句碎念：纯净白底（默认） */
+
+    /* ========== 全局CSS优化 ========== */
+  }
+
+  /* 自定义滚动条 - 柔和粉色系 */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 105, 180, 0.25);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 105, 180, 0.4);
+  }
+
+  /* 卡片统一定律：柔和hover效果 */
+  .card-base {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .card-base:hover {
+    box-shadow: 0 4px 20px rgba(255, 105, 180, 0.08);
+  }
+
+  /* 移动端：避免卡片挤压、文字错位 */
+  @media (max-width: 640px) {
+    .card-base {
+      border-radius: 0.75rem !important;
+    }
+    /* 确保侧边栏双人卡片不溢出 */
+    #left-sidebar .card-base {
+      overflow: hidden;
+    }
   }
 </style>
 

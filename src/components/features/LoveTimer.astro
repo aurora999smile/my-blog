@@ -17,7 +17,7 @@
   </div>
 
   <!-- 在一起总时长 -->
-  <div class="timer-total flex justify-center gap-3 md:gap-5 mb-5">
+  <div class="timer-total flex justify-center gap-4 md:gap-6 mb-5">
     <div class="timer-unit">
       <div class="timer-number" id="love-days">--</div>
       <div class="timer-label">天</div>
@@ -71,19 +71,20 @@
 <style>
   .love-timer-wrapper {
     background: linear-gradient(135deg, 
-      rgba(255, 182, 193, 0.15) 0%, 
-      rgba(255, 105, 180, 0.08) 50%, 
-      rgba(255, 182, 193, 0.15) 100%);
-    border: 1px solid rgba(255, 105, 180, 0.2);
+      rgba(255, 182, 193, 0.12) 0%, 
+      rgba(255, 105, 180, 0.06) 50%, 
+      rgba(255, 182, 193, 0.12) 100%);
+    border: 1px solid rgba(255, 105, 180, 0.15);
     border-radius: var(--radius-large, 1rem);
+    backdrop-filter: blur(10px);
   }
 
   :global(.dark) .love-timer-wrapper {
     background: linear-gradient(135deg, 
-      rgba(255, 105, 180, 0.08) 0%, 
-      rgba(255, 182, 193, 0.04) 50%, 
-      rgba(255, 105, 180, 0.08) 100%);
-    border-color: rgba(255, 105, 180, 0.15);
+      rgba(255, 105, 180, 0.06) 0%, 
+      rgba(255, 182, 193, 0.03) 50%, 
+      rgba(255, 105, 180, 0.06) 100%);
+    border-color: rgba(255, 105, 180, 0.1);
   }
 
   .timer-total {
@@ -95,12 +96,12 @@
   }
 
   .timer-number {
-    font-size: 1.8rem;
+    font-size: 2rem;
     font-weight: 800;
-    color: var(--primary, #ff69b4);
-    line-height: 1;
-    min-width: 3rem;
+    line-height: 1.1;
+    min-width: 3.2rem;
     font-variant-numeric: tabular-nums;
+    letter-spacing: 0.02em;
     background: linear-gradient(135deg, #ff69b4, #ff1493);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -108,52 +109,60 @@
   }
 
   .timer-separator {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-weight: 700;
     color: var(--primary, #ff69b4);
-    opacity: 0.5;
+    opacity: 0.4;
     align-self: flex-start;
-    margin-top: 0.2rem;
+    margin-top: 0.15rem;
     animation: blink 1s ease-in-out infinite;
   }
 
   @keyframes blink {
-    0%, 100% { opacity: 0.5; }
-    50% { opacity: 1; }
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.9; }
   }
 
   .timer-label {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     color: #999;
-    margin-top: 0.25rem;
+    margin-top: 0.3rem;
+    letter-spacing: 0.05em;
   }
 
   .countdown-item {
     text-align: center;
     padding: 0.75rem 0.5rem;
     border-radius: 0.75rem;
-    background: rgba(255, 105, 180, 0.05);
-    border: 1px solid rgba(255, 105, 180, 0.1);
-    transition: transform 0.2s, box-shadow 0.2s;
+    background: rgba(255, 105, 180, 0.04);
+    border: 1px solid rgba(255, 105, 180, 0.08);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                border-color 0.3s ease;
   }
 
   .countdown-item:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(255, 105, 180, 0.15);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 105, 180, 0.12);
+    border-color: rgba(255, 105, 180, 0.2);
   }
 
   :global(.dark) .countdown-item {
-    background: rgba(255, 105, 180, 0.03);
-    border-color: rgba(255, 105, 180, 0.1);
+    background: rgba(255, 105, 180, 0.02);
+    border-color: rgba(255, 105, 180, 0.06);
+  }
+
+  :global(.dark) .countdown-item:hover {
+    box-shadow: 0 8px 25px rgba(255, 105, 180, 0.08);
   }
 
   .countdown-icon {
-    font-size: 1.5rem;
-    margin-bottom: 0.25rem;
+    font-size: 1.4rem;
+    margin-bottom: 0.3rem;
   }
 
   .countdown-title {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-weight: 600;
     color: #666;
     margin-bottom: 0.15rem;
@@ -164,59 +173,57 @@
   }
 
   .countdown-date {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     color: #999;
-    margin-bottom: 0.35rem;
+    margin-bottom: 0.3rem;
   }
 
   .countdown-value {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 700;
     color: var(--primary, #ff69b4);
     font-variant-numeric: tabular-nums;
+    letter-spacing: 0.03em;
   }
 
   /* 移动端适配 */
   @media (max-width: 640px) {
     .timer-number {
-      font-size: 1.4rem;
-      min-width: 2.2rem;
+      font-size: 1.5rem;
+      min-width: 2.4rem;
     }
     .timer-separator {
       font-size: 1.2rem;
+    }
+    .timer-total {
+      gap: 0.6rem;
     }
   }
 </style>
 
 <script is:inline>
 (function() {
-  // === 配置 ===
   var TOGETHER_DATE = new Date('2024-07-14T00:00:00+08:00');
-  // 农历正月十二对应的阳历日期（2024-2030）
   var LUNAR_BIRTHDAY_HER = [
-    { year: 2024, month: 1, day: 20 }, // 2024年农历正月十二 ≈ 2月21日
-    { year: 2025, month: 0, day: 8 },  // 2025年 ≈ 2月9日
-    { year: 2026, month: 1, day: 27 }, // 2026年 ≈ 2月28日
-    { year: 2027, month: 1, day: 16 }, // 2027年 ≈ 2月17日
-    { year: 2028, month: 1, day: 5 },  // 2028年 ≈ 2月6日
-    { year: 2029, month: 1, day: 23 }, // 2029年 ≈ 2月24日
-    { year: 2030, month: 1, day: 12 }, // 2030年 ≈ 2月13日
+    { year: 2024, month: 1, day: 20 },
+    { year: 2025, month: 0, day: 8 },
+    { year: 2026, month: 1, day: 27 },
+    { year: 2027, month: 1, day: 16 },
+    { year: 2028, month: 1, day: 5 },
+    { year: 2029, month: 1, day: 23 },
+    { year: 2030, month: 1, day: 12 },
   ];
 
   function pad(n) { return n < 10 ? '0' + n : '' + n; }
 
-  // 计算下一个纪念日日期
   function getNextAnniversary(month, day) {
     var now = new Date();
     var year = now.getFullYear();
     var next = new Date(year, month, day, 0, 0, 0);
-    if (next <= now) {
-      next = new Date(year + 1, month, day, 0, 0, 0);
-    }
+    if (next <= now) next = new Date(year + 1, month, day, 0, 0, 0);
     return next;
   }
 
-  // 获取她的下一个生日（从预计算表中查找）
   function getNextHerBirthday() {
     var now = new Date();
     var currentYear = now.getFullYear();
@@ -227,7 +234,6 @@
         if (next > now) return next;
       }
     }
-    // 超出预计算范围，返回下一年的近似值
     return new Date(currentYear + 1, 1, 20, 0, 0, 0);
   }
 
@@ -249,8 +255,6 @@
 
   function updateTimer() {
     var now = new Date();
-
-    // === 总时长 ===
     var totalDiff = now - TOGETHER_DATE;
     var totalDays = Math.floor(totalDiff / (1000 * 60 * 60 * 24));
     var totalHours = Math.floor((totalDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -266,7 +270,6 @@
     if (mEl) mEl.textContent = pad(totalMinutes);
     if (sEl) sEl.textContent = pad(totalSeconds);
 
-    // === 倒计时 ===
     var cdTogether = document.getElementById('cd-together');
     var cdMeeting = document.getElementById('cd-meeting');
     var cdBdHim = document.getElementById('cd-birthday-him');
