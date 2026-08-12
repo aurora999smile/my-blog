@@ -19,12 +19,7 @@ export const siteConfig: SiteConfig = {
 		"斐拾婷光 — zf 与 ltt 的恋爱日常记录，用文字和照片留住每一个温暖的瞬间。",
 
 	// 站点关键词
-	keywords: [
-		"斐拾婷光",
-		"恋爱日常",
-		"情侣博客",
-		"恋爱纪念",
-	],
+	keywords: ["斐拾婷光", "恋爱日常", "情侣博客", "恋爱纪念"],
 
 	// 主题色
 	themeColor: {

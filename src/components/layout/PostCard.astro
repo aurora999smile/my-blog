@@ -102,12 +102,13 @@ const minutes = remarkPluginFrontmatter.minutes;
 
 // 分类 emoji 映射
 const categoryEmoji: Record<string, string> = {
-	"寄给她的信": "💌",
-	"我们的纪事": "📜",
-	"心内回声": "🫀",
-	"短句碎念": "✍️",
+	寄给她的信: "💌",
+	我们的纪事: "📜",
+	心内回声: "🫀",
+	短句碎念: "✍️",
 };
-const emoji = category && categoryEmoji[category] ? categoryEmoji[category] : "";
+const emoji =
+	category && categoryEmoji[category] ? categoryEmoji[category] : "";
 ---
 
 <div
