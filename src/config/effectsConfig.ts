@@ -6,8 +6,11 @@ export const sakuraConfig: SakuraConfig = {
 	// 是否启用樱花特效
 	enable: true,
 
+	// 是否使用 Web Worker 绘制（关闭则走主线程 Canvas，Worker 可能因图片加载失败而静默崩溃）
+	useWorker: false,
+
 	// 樱花数量
-	sakuraNum: 21,
+	sakuraNum: 30,
 
 	// 樱花越界限制次数，-1为无限循环
 	limitTimes: -1,
@@ -15,9 +18,9 @@ export const sakuraConfig: SakuraConfig = {
 	// 樱花尺寸
 	size: {
 		// 樱花最小尺寸倍数
-		min: 0.5,
+		min: 0.8,
 		// 樱花最大尺寸倍数
-		max: 1.1,
+		max: 1.5,
 	},
 
 	// 樱花不透明度

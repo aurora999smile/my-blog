@@ -455,6 +455,13 @@
 			} catch (err) {
 				console.warn("[SakuraWorker] init failed:", err);
 				this.stop();
+				// Worker 失败后自动降级到主线程 Canvas，避免动画静默丢失
+				if (gen === this.initGeneration && globalSakuraManager === this) {
+					console.info("[Sakura] Falling back to main-thread renderer");
+					globalSakuraManager = new MainThreadSakuraManager(this.config);
+					window.sakuraManager = globalSakuraManager;
+					void globalSakuraManager.init();
+				}
 			}
 		}
 
@@ -499,6 +506,7 @@
 	// ===========================================================================
 	function supportsWorkerSakura(): boolean {
 		return (
+			sakuraConfig.useWorker && // 配置允许使用 Worker 时才走 Worker
 			typeof OffscreenCanvas !== "undefined" &&
 			typeof Worker !== "undefined" &&
 			typeof HTMLCanvasElement !== "undefined" &&

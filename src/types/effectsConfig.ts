@@ -1,5 +1,6 @@
 export type SakuraConfig = {
 	enable: boolean; // 是否启用樱花特效
+	useWorker: boolean; // 是否使用 Web Worker（false 走主线程，避免 Worker 图片加载失败静默崩溃）
 	sakuraNum: number; // 樱花数量，默认21
 	limitTimes: number; // 樱花越界限制次数，-1为无限循环
 	size: {
