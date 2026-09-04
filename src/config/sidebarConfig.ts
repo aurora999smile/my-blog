@@ -10,7 +10,7 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 	hideSidebarOnPostPage: false,
 	showBothSidebarsOnPostPage: true,
 
-	// ========== 左侧边栏：头像 + 公告 + 分类 ==========
+	// ========== 左侧边栏：头像 + 公告 ==========
 	leftComponents: [
 		{
 			type: "profile",
@@ -23,15 +23,6 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 			enable: true,
 			position: "top",
 			showOnPostPage: true,
-		},
-		{
-			type: "categories",
-			enable: true,
-			position: "top",
-			showOnPostPage: false,
-			specificConfig: {
-				collapseThreshold: 12,
-			},
 		},
 	],
 
