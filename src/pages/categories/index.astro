@@ -1,12 +1,26 @@
 ---
-import { Icon } from "astro-icon/components";
 import I18nKey from "@/i18n/i18nKey";
 import { i18n } from "@/i18n/translation";
 import MainGridLayout from "@/layouts/MainGridLayout.astro";
-import { getCategoryList } from "@/utils/content-utils";
+import { getSortedPosts } from "@/utils/content-utils";
+import { siteConfig } from "@/config";
+import PostPage from "@/components/layout/PostPage.astro";
 
-const categories = await getCategoryList();
-const totalPosts = categories.reduce((sum, cat) => sum + cat.count, 0);
+// 获取全部文章（不分分类）
+const allPosts = await getSortedPosts();
+const pageSize = siteConfig.pagination.postsPerPage;
+// 显示全部文章（不分页，或取前 50 篇）
+const displayPosts = allPosts.slice(0, 50);
+
+// 创建一个兼容 PostPage 的 page 对象
+const mockPage = {
+  data: displayPosts,
+  total: allPosts.length,
+  size: pageSize,
+  currentPage: 1,
+  lastPage: 1,
+  url: { current: "/categories/" },
+};
 ---
 
 <MainGridLayout title={i18n(I18nKey.categories)}>
@@ -16,54 +30,10 @@ const totalPosts = categories.reduce((sum, cat) => sum + cat.count, 0);
             {i18n(I18nKey.categories)}
         </div>
         <p class="text-30 text-sm">
-            {i18n(I18nKey.allCategories)} · {totalPosts} {i18n(I18nKey.postsCount)}
+            全部文章 · {allPosts.length} {i18n(I18nKey.postsCount)}
         </p>
     </div>
 
-    <!-- 分类卡片列表 -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
-        {
-            categories.map((category, index) => (
-                <a
-                    href={category.url}
-                    class="card-base p-6 flex items-center gap-4 group onload-animation"
-                    style={`animation-delay: calc(var(--content-delay) + ${index * 50}ms);`}
-                >
-                    <div class="shrink-0 w-14 h-14 rounded-full bg-(--primary)/10 group-hover:bg-(--primary)/20 flex items-center justify-center transition-colors">
-                        <Icon is:inline
-                            name="material-symbols:folder-open"
-                            class="text-3xl text-(--primary)"
-                        />
-                    </div>
-                    <div class="flex-1 min-w-0">
-                        <h2 class="text-lg font-bold text-90 truncate group-hover:text-(--primary) transition-colors" title={category.name}>
-                            {category.name}
-                        </h2>
-                        <p class="text-sm text-30 mt-1 group-hover:text-(--primary)/60 transition-colors">
-                            {category.count} {i18n(I18nKey.postsCount)}
-                        </p>
-                    </div>
-                    <div class="shrink-0">
-                        <Icon is:inline
-                            name="material-symbols:chevron-right-rounded"
-                            class="text-2xl text-30 group-hover:text-(--primary) transition-colors "
-                        />
-                    </div>
-                </a>
-            ))
-        }
-    </div>
-
-    <!-- 空状态 -->
-    {
-        categories.length === 0 && (
-            <div class="card-base px-8 py-12 text-center">
-                <Icon is:inline
-                    name="material-symbols:folder-off"
-                    class="text-5xl text-30 mx-auto mb-4"
-                />
-                <p class="text-30">{i18n(I18nKey.noData)}</p>
-            </div>
-        )
-    }
+    <!-- 全部文章列表（直接渲染，无分类筛选） -->
+    <PostPage page={mockPage} />
 </MainGridLayout>
