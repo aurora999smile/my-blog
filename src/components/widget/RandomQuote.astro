@@ -18,6 +18,12 @@ const { class: className, style } = Astro.props;
 
 <script is:inline>
 (function() {
+  // 防重入：避免 Swup 页面切换时重复创建定时器
+  if (window.__randomQuoteTimer) {
+    clearInterval(window.__randomQuoteTimer);
+    window.__randomQuoteTimer = null;
+  }
+
   var quotes = [
     { text: "遇见你之前，我没想过结婚。", author: "zf" },
     { text: "你笑的时候，全世界都在发光。", author: "ltt" },
@@ -32,6 +38,7 @@ const { class: className, style } = Astro.props;
   ];
 
   var lastIndex = -1;
+  var INTERVAL_MS = 10000; // 10秒
 
   function showRandom() {
     var el = document.getElementById('random-quote-box');
@@ -43,17 +50,24 @@ const { class: className, style } = Astro.props;
     el.innerHTML = '<span class="text-pink-400">「</span>' + q.text + '<span class="text-pink-400">」</span><br/><span class="text-xs text-neutral-400 not-italic mt-1 block text-right">—— ' + q.author + '</span>';
   }
 
-  showRandom();
+  // 启动自动刷新
+  function startAutoRefresh() {
+    if (window.__randomQuoteTimer) {
+      clearInterval(window.__randomQuoteTimer);
+    }
+    window.__randomQuoteTimer = setInterval(showRandom, INTERVAL_MS);
+  }
 
-  // 点击手动切换
+  showRandom();
+  startAutoRefresh();
+
+  // 点击手动切换 + 重置定时器（避免点击后加速刷新）
   var box = document.getElementById('random-quote-box');
   if (box) {
     box.addEventListener('click', function() {
       showRandom();
+      startAutoRefresh(); // 重置10秒倒计时
     });
   }
-
-  // 自动刷新：10秒一次
-  setInterval(showRandom, 10000);
 })();
 </script>
