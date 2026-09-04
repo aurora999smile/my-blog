@@ -832,3 +832,71 @@ html[data-wallpaper-mode="fullscreen"] body:not(.wallpaper-initialized) .w-full.
         transition: top 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s !important;
     }
 }
+
+/* ============================================
+   移动端单列布局 (<768px)
+   顺序：导航 → 简介卡片 → 恋爱天数 → 语录 → 音乐
+   ============================================ */
+@media (max-width: 767px) {
+    /* 主内容区单列 + 合理间距 */
+    #main-grid {
+        padding: 0 0.75rem;
+        gap: 0.75rem;
+    }
+
+    /* 侧边栏变单列 */
+    #left-sidebar,
+    #right-sidebar {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    /* 所有卡片使用相对宽度 */
+    .card-base {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    /* 图片溢出防护 */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* LoveTimer 内部间距收紧 */
+    .love-timer-wrapper {
+        padding: 0.75rem !important;
+        margin: 0 !important;
+    }
+
+    /* 纪念日卡片在手机端 2 列 */
+    .countdown-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 0.5rem !important;
+    }
+}
+
+/* ============================================
+   平板适配 (768px - 1199px)
+   ============================================ */
+@media (min-width: 768px) and (max-width: 1199px) {
+    /* 压缩侧边栏宽度 */
+    #left-sidebar,
+    #right-sidebar {
+        max-width: 14rem !important;
+    }
+}
+
+/* ============================================
+   图片全局溢出防护
+   ============================================ */
+img, video, iframe {
+    max-width: 100%;
+    height: auto;
+}
+
+.custom-md img,
+#post-cover img {
+    max-width: 100%;
+    height: auto;
+}

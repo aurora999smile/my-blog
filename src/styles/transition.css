@@ -75,16 +75,21 @@ html.is-animating .transition-swup-fade {
    -------------------------------------------------------------------------- */
 
 .onload-animation {
-    opacity: 0;
-    animation: fade-in-up 120ms ease-out forwards;
+    opacity: 1; /* 安全：JS 异常时内容仍可见 */
+    animation: cardFadeIn 250ms ease-out forwards;
 }
 
-/* 渐进式动画延迟 */
+@keyframes cardFadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 渐进式动画延迟 — 首页各模块依次淡入 */
 .onload-animation:nth-child(1) { animation-delay: 0ms; }
-.onload-animation:nth-child(2) { animation-delay: 30ms; }
-.onload-animation:nth-child(3) { animation-delay: 60ms; }
-.onload-animation:nth-child(4) { animation-delay: 90ms; }
-.onload-animation:nth-child(5) { animation-delay: 120ms; }
+.onload-animation:nth-child(2) { animation-delay: 60ms; }
+.onload-animation:nth-child(3) { animation-delay: 120ms; }
+.onload-animation:nth-child(4) { animation-delay: 180ms; }
+.onload-animation:nth-child(5) { animation-delay: 240ms; }
 
 /* --------------------------------------------------------------------------
    4. Navigation Progress Bar

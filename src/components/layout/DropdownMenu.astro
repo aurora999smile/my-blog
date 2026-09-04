@@ -8,9 +8,9 @@ import { url } from "@/utils/url-utils";
 interface Props {
 	link: NavBarLink;
 	class?: string;
+	isActive?: boolean;
 }
-
-const { link, class: className } = Astro.props;
+const { link, class: className, isActive = false } = Astro.props;
 
 // 检查 link 是否存在
 if (!link) {
@@ -21,7 +21,6 @@ const processedLink = link;
 
 const hasChildren = processedLink.children && processedLink.children.length > 0;
 ---
-
 <div class:list={["dropdown-container", className]} data-dropdown>
 	{hasChildren ? (
 		<button 
@@ -59,7 +58,10 @@ const hasChildren = processedLink.children && processedLink.children.length > 0;
 			aria-label={processedLink.name} 
 			href={processedLink.external ? processedLink.url : url(processedLink.url)} 
 			target={processedLink.external ? "_blank" : null}
-			class="btn-plain scale-animation rounded-lg h-10 font-bold px-4 active:scale-95"
+			class:list={[
+				"btn-plain scale-animation rounded-lg h-10 font-bold px-4 active:scale-95",
+				isActive && "navbar-link-active"
+			]}
 		>
 			<div class="flex items-center gap-1.5">
 				{processedLink.icon && <Icon is:inline name={processedLink.icon} class="text-[1.1rem] mr-1.5 navbar-icon" />}
@@ -89,6 +91,11 @@ const hasChildren = processedLink.children && processedLink.children.length > 0;
 	.dropdown-container:hover .dropdown-arrow,
 	.dropdown-container:focus-within .dropdown-arrow {
 		@apply rotate-180;
+	}
+
+	/* 当前页面高亮 */
+	.navbar-link-active {
+		color: var(--primary, #ff69b4) !important;
 	}
 
 	/* 移动端隐藏下拉菜单 */
@@ -168,11 +175,11 @@ const hasChildren = processedLink.children && processedLink.children.length > 0;
 			openDropdown(_dropdown, trigger, menu);
 		}
 	}
-
+	
 	function openDropdown(_dropdown: Element, trigger: Element, _menu: Element) {
 		trigger.setAttribute('aria-expanded', 'true');
 	}
-
+	
 	function closeDropdown(_dropdown: Element, trigger: Element, _menu: Element) {
 		trigger.setAttribute('aria-expanded', 'false');
 	}

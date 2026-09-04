@@ -192,6 +192,7 @@
 		img: HTMLImageElement | null = null;
 		isRunning = false;
 		private boundHandleResize: (() => void) | null = null;
+		private boundHandleVisibility: (() => void) | null = null;
 		private resizeRafId: number | null = null;
 		/**
 		 * init/stop 周期代际标记。每次 stop 自增,使 await 期间被取消的 init 失效,
@@ -254,17 +255,37 @@
 
 			this.boundHandleResize = this.handleResize.bind(this);
 			window.addEventListener("resize", this.boundHandleResize);
-		}
+
+			// 页面切后台暂停粒子，切回恢复
+			this.boundHandleVisibility = () => {
+				if (document.hidden) {
+					if (this.animationId) {
+						cancelAnimationFrame(this.animationId);
+						this.animationId = null;
+					}
+				} else {
+					if (!this.animationId && this.ctx && this.canvas && this.sakuraList) {
+						this.startAnimation();
+					}
+				}
+			};
+			document.addEventListener("visibilitychange", this.boundHandleVisibility);
+			}
 
 		createSakuraList() {
 			if (!this.img || !this.ctx) return;
 
 			this.sakuraList = new MainThreadSakuraList();
-			const limitArray = new Array(this.config.sakuraNum).fill(
+			// 移动端进一步削减粒子数
+			const isMobile = window.innerWidth < 768;
+			const particleCount = isMobile
+				? Math.min(this.config.sakuraNum, 8)
+				: this.config.sakuraNum;
+			const limitArray = new Array(particleCount).fill(
 				this.config.limitTimes,
 			);
 
-			for (let i = 0; i < this.config.sakuraNum; i++) {
+			for (let i = 0; i < particleCount; i++) {
 				const sakura = new MainThreadSakura(
 					getRandomMainThread("x", this.config),
 					getRandomMainThread("y", this.config),
@@ -334,6 +355,10 @@
 			if (this.boundHandleResize) {
 				window.removeEventListener("resize", this.boundHandleResize);
 				this.boundHandleResize = null;
+			}
+			if (this.boundHandleVisibility) {
+				document.removeEventListener("visibilitychange", this.boundHandleVisibility);
+				this.boundHandleVisibility = null;
 			}
 			this.img = null;
 			this.sakuraList = null;

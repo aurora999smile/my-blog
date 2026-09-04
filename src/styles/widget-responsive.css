@@ -45,16 +45,7 @@
   overflow: hidden;
 }
 
-/* 组件悬停效果 */
-.widget-container:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.widget-container.widget-hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
+/* 组件 hover 效果已移除 — 纯展示卡片不添加 hover（符合交互规范） */
 
 /* 移动端样式 (< 768px) */
 @media (max-width: 767px) {
@@ -141,11 +132,7 @@
     display: none;
   }
   
-  /* 桌面端增强效果 */
-  .widget-container:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-  }
+  /* 桌面端样式 */
 }
 
 /* 超宽屏样式 (> 1440px) */
@@ -290,12 +277,8 @@
   animation: scaleIn var(--widget-animation-duration) var(--widget-animation-timing) forwards;
 }
 
-/* 初始状态 */
+/* 初始状态：默认可见（防止 JS 异常导致白屏） */
 .widget-container {
-  opacity: 0;
-}
-
-.widget-container.widget-animated {
   opacity: 1;
 }
 
