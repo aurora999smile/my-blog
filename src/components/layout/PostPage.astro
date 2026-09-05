@@ -333,6 +333,11 @@ const coverPositionClass =
     gap: 1rem;
   }
 
+  /* 只有1篇文章时，网格退化为单列铺满，与倒计时卡片等宽 */
+  .post-grid-auto:has(> :only-child) {
+    grid-template-columns: 1fr;
+  }
+
   /* 移动端列表模式下缩小元数据 */
   @media (max-width: 767px) {
     .list-mode .post-meta-root {

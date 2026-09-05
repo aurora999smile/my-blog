@@ -1,5 +1,4 @@
 ---
-import { Icon } from "astro-icon/components";
 import ImageWrapper from "@/components/common/ImageWrapper.astro";
 import { profileConfig } from "@/config/profileConfig";
 import { url } from "@/utils/url-utils";
@@ -25,10 +24,6 @@ const hasPartner = !!profileConfig.partner;
       class="absolute transition pointer-events-none group-hover:bg-black/30 group-active:bg-black/50
         w-full h-full z-50 flex items-center justify-center"
     >
-      <Icon is:inline
-        name="fa7-regular:address-card"
-        class="transition opacity-0 scale-90 group-hover:scale-100 group-hover:opacity-100 text-white text-5xl"
-      />
     </div>
     {hasPartner ? (
       <div class="flex items-center justify-center gap-2 p-2">
@@ -108,57 +103,6 @@ const hasPartner = !!profileConfig.partner;
     </div>
     <div class="text-center text-neutral-300 dark:text-neutral-600 mb-2.5 transition text-xs">
       zf ♡ ltt · 2024.07.14 起
-    </div>
-
-    <!-- 链接按钮 -->
-    <div class="flex flex-wrap gap-2 justify-center mb-1">
-      {profileConfig.links.length > 1 && profileConfig.links.map(item => {
-        const showName = item.showName;
-        const className = showName
-          ? "btn-regular rounded-lg h-10 gap-2 px-3 font-bold active:scale-95"
-          : "btn-regular rounded-lg h-10 w-10 active:scale-90";
-
-        if (item.url.startsWith("mailto:")) {
-          const encodedEmail = Buffer.from(item.url.replace("mailto:", "")).toString("base64");
-          return (
-            <a rel="me" aria-label={item.name} href="#" data-encoded-email={encodedEmail}
-              onclick={`(function() { var e = atob(this.getAttribute('data-encoded-email')); this.href='mailto:'+e; this.removeAttribute('data-encoded-email'); this.removeAttribute('onclick'); this.click(); return false; }).call(this);`.replace(/\s+/g, " ").trim()}
-              class={className}>
-              <Icon is:inline name={item.icon} class="text-[1.5rem]"></Icon>
-              {showName && item.name}
-            </a>
-          );
-        } else {
-          return (
-            <a rel="me" aria-label={item.name} href={item.url} target="_blank" class={className}>
-              <Icon is:inline name={item.icon} class="text-[1.5rem]"></Icon>
-              {showName && item.name}
-            </a>
-          );
-        }
-      })}
-      {profileConfig.links.length === 1 && (() => {
-        const item = profileConfig.links[0];
-        if (item.url.startsWith("mailto:")) {
-          const encodedEmail = Buffer.from(item.url.replace("mailto:", "")).toString("base64");
-          return (
-            <a rel="me" aria-label={item.name} href="#" data-encoded-email={encodedEmail}
-              onclick={`(function() { var e = atob(this.getAttribute('data-encoded-email')); this.href='mailto:'+e; this.removeAttribute('data-encoded-email'); this.removeAttribute('onclick'); this.click(); return false; }).call(this);`.replace(/\s+/g, " ").trim()}
-              class="btn-regular rounded-lg h-10 gap-2 px-3 font-bold active:scale-95">
-              <Icon is:inline name={item.icon} class="text-[1.5rem]"></Icon>
-              {item.name}
-            </a>
-          );
-        } else {
-          return (
-            <a rel="me" aria-label={item.name} href={item.url} target="_blank"
-              class="btn-regular rounded-lg h-10 gap-2 px-3 font-bold active:scale-95">
-              <Icon is:inline name={item.icon} class="text-[1.5rem]"></Icon>
-              {item.name}
-            </a>
-          );
-        }
-      })()}
     </div>
   </div>
 </div>

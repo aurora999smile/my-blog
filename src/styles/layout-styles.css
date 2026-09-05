@@ -888,6 +888,14 @@ html[data-wallpaper-mode="fullscreen"] body:not(.wallpaper-initialized) .w-full.
 }
 
 /* ============================================
+   侧边栏高度统一对齐 — 消除左右侧栏高低错位
+   ============================================ */
+#left-sidebar,
+#right-sidebar {
+    align-self: stretch;
+}
+
+/* ============================================
    图片全局溢出防护
    ============================================ */
 img, video, iframe {
