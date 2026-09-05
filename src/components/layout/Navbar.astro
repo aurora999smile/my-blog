@@ -83,11 +83,23 @@ let links: NavBarLink[] = navBarConfig.links
 // --- 当前页面高亮 ---
 const currentPath = Astro.url.pathname;
 function isActiveLink(linkUrl: string): boolean {
-	if (linkUrl === '/') {
-		return currentPath === '/' || currentPath === '/my-blog/' || currentPath === '/my-blog';
+	if (linkUrl === "/") {
+		return (
+			currentPath === "/" ||
+			currentPath === "/my-blog/" ||
+			currentPath === "/my-blog"
+		);
 	}
-	const cleanPath = currentPath.replace(/\/my-blog\/?/, '/');
-	return cleanPath.startsWith(linkUrl) && linkUrl !== '/';
+	// For links with query params, compare full URL including params
+	if (linkUrl.includes("?")) {
+		const cleanCurrent = currentPath.replace(/\/my-blog\/?/, "/");
+		const currentSearch = Astro.url.search || "";
+		const cleanLinkPath = linkUrl.split("?")[0];
+		const linkSearch = linkUrl.split("?")[1] ? "?" + linkUrl.split("?")[1] : "";
+		return cleanCurrent === cleanLinkPath && currentSearch === linkSearch;
+	}
+	const cleanPath = currentPath.replace(/\/my-blog\/?/, "/");
+	return cleanPath.startsWith(linkUrl) && linkUrl !== "/";
 }
 
 // 处理导航栏 Logo 图片，image / url 类型支持亮暗色分别设置
@@ -231,7 +243,7 @@ const logoVariants = await Promise.all(
                 <MusicPlayer />
             </div>
         )}
-        <NavMenuPanel links={links} currentPath={currentPath}></NavMenuPanel>
+        <NavMenuPanel links={links} currentPath={currentPath} currentSearch={Astro.url.search || ''}></NavMenuPanel>
         {isDisplaySettingsEnabled && <DisplaySettings client:load></DisplaySettings>}
     </div>
 </div>
@@ -339,6 +351,64 @@ function loadButtonScript() {
 }
 
 loadButtonScript();
+
+// --- Swup SPA 导航时更新导航栏当前页面高亮 ---
+function updateNavbarActiveLink() {
+	const pathname = window.location.pathname;
+
+	// 与服务端 isActiveLink 逻辑保持一致
+	function isActiveLink(linkHref: string): boolean {
+		if (!linkHref) return false;
+		try {
+			const linkUrl = new URL(linkHref, window.location.origin);
+			if (linkUrl.pathname === "/") {
+				return pathname === "/" || pathname === "/my-blog/" || pathname === "/my-blog";
+			}
+			// For links with query params, compare full URL including params
+			if (linkUrl.search) {
+				const cleanCurrent = pathname.replace(/\/my-blog\/?/, "/");
+				const currentSearch = window.location.search || "";
+				const cleanLinkPath = linkUrl.pathname.replace(/\/my-blog\/?/, "/");
+				return cleanCurrent === cleanLinkPath && currentSearch === linkUrl.search;
+			}
+			const cleanPath = pathname.replace(/\/my-blog\/?/, "/");
+			const cleanLinkPath = linkUrl.pathname.replace(/\/my-blog\/?/, "/");
+			return cleanPath.startsWith(cleanLinkPath) && cleanLinkPath !== "/";
+		} catch {
+			return false;
+		}
+	}
+
+	// 桌面端：更新 .dropdown-container 内链接的 navbar-link-active 类
+	document.querySelectorAll(".dropdown-container").forEach((container) => {
+		const link = container.querySelector("a");
+		if (!link) return;
+		const isActive = isActiveLink(link.getAttribute("href") || "");
+		link.classList.toggle("navbar-link-active", isActive);
+	});
+
+	// 移动端：更新 .mobile-menu-item 内 <a> 元素的 mobile-nav-active 类
+	document.querySelectorAll(".mobile-menu-item > a").forEach((link) => {
+		const isActive = isActiveLink(link.getAttribute("href") || "");
+		link.classList.toggle("mobile-nav-active", isActive);
+	});
+}
+
+// DOM 就绪时执行一次
+if (document.readyState === "loading") {
+	document.addEventListener("DOMContentLoaded", updateNavbarActiveLink);
+} else {
+	updateNavbarActiveLink();
+}
+
+// Swup 导航完成时更新高亮
+if (window.swup && window.swup.hooks) {
+	window.swup.hooks.on("content:replace", updateNavbarActiveLink);
+} else {
+	document.addEventListener("swup:enable", function () {
+		window.swup.hooks.on("content:replace", updateNavbarActiveLink);
+	});
+}
 
 // 为semifull模式添加滚动检测逻辑
 function initSemifullScrollDetection() {

@@ -14,7 +14,7 @@ export const announcementConfig: AnnouncementConfig = {
 		// 启用链接
 		enable: true,
 		// 链接文本
-		text: "了解更多",
+		text: "查看故事",
 		// 链接 URL
 		url: "/about/",
 		// 内部链接

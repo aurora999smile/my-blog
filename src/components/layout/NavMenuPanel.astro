@@ -6,16 +6,29 @@ import { url } from "@/utils/url-utils";
 interface Props {
 	links: NavBarLink[];
 	currentPath?: string;
+	currentSearch?: string;
 }
 const processedLinks = Astro.props.links;
-const currentPath = Astro.props.currentPath || '';
+const currentPath = Astro.props.currentPath || "";
+const currentSearch = Astro.props.currentSearch || "";
 
 function isActiveMobile(linkUrl: string): boolean {
-	if (linkUrl === '/') {
-		return currentPath === '/' || currentPath === '/my-blog/' || currentPath === '/my-blog';
+	if (linkUrl === "/") {
+		return (
+			currentPath === "/" ||
+			currentPath === "/my-blog/" ||
+			currentPath === "/my-blog"
+		);
 	}
-	const cleanPath = currentPath.replace(/\/my-blog\/?/, '/');
-	return cleanPath.startsWith(linkUrl) && linkUrl !== '/';
+	// For links with query params, compare full URL including params
+	if (linkUrl.includes("?")) {
+		const cleanCurrent = currentPath.replace(/\/my-blog\/?/, "/");
+		const cleanLinkPath = linkUrl.split("?")[0];
+		const linkSearch = linkUrl.split("?")[1] ? "?" + linkUrl.split("?")[1] : "";
+		return cleanCurrent === cleanLinkPath && currentSearch === linkSearch;
+	}
+	const cleanPath = currentPath.replace(/\/my-blog\/?/, "/");
+	return cleanPath.startsWith(linkUrl) && linkUrl !== "/";
 }
 ---
 <div id="nav-menu-panel" class:list={["float-panel float-panel-closed transition-all fixed right-4 px-2 py-2 max-h-[80vh] overflow-y-auto z-50"]} data-floating-panel data-floating-panel-trigger="nav-menu-switch" inert aria-hidden="true">

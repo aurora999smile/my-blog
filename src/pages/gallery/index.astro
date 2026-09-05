@@ -24,11 +24,13 @@ const albums = galleryConfig.albums.map((album) => {
 
 // 收集所有标签用于筛选（保持配置文件中的顺序）
 const seenTags = new Set<string>();
-const allTags = albums.flatMap((a) => a.tags || []).filter((tag) => {
-	if (seenTags.has(tag)) return false;
-	seenTags.add(tag);
-	return true;
-});
+const allTags = albums
+	.flatMap((a) => a.tags || [])
+	.filter((tag) => {
+		if (seenTags.has(tag)) return false;
+		seenTags.add(tag);
+		return true;
+	});
 ---
 
 <MainGridLayout title={title} description={description}>

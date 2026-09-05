@@ -2,7 +2,6 @@ import type { GalleryConfig } from "@/types/galleryConfig";
 
 // 相册配置
 export const galleryConfig: GalleryConfig = {
-
 	// 相册列表
 	albums: [
 		// === 双影同栖 ===

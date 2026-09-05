@@ -22,8 +22,8 @@ export const musicPlayerConfig: MusicPlayerConfig = {
 
 	// Meting API 配置
 	meting: {
-		// 主 API
-		api: "https://api.i-meto.com/meting/api?server=:server&type=:type&id=:id&r=:r",
+		// 主 API（i-meto.com 已失效，改用 injahow.cn）
+		api: "https://api.injahow.cn/meting/?server=:server&type=:type&id=:id",
 		// 音乐平台
 		server: "netease",
 		// 类型：playlist=歌单
@@ -34,8 +34,8 @@ export const musicPlayerConfig: MusicPlayerConfig = {
 		auth: "",
 		// 备用 API
 		fallbackApis: [
-			"https://api.injahow.cn/meting/?server=:server&type=:type&id=:id",
 			"https://api.moeyao.cn/meting/?server=:server&type=:type&id=:id",
+			"https://api.i-meto.com/meting/api?server=:server&type=:type&id=:id&r=:r",
 		],
 	},
 

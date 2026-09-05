@@ -60,11 +60,11 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 		icon: "material-symbols:timeline",
 	});
 
-	// 👩‍❤️‍👨 关于我们
+	// 💫 心愿清单
 	links.push({
-		name: "关于我们",
-		url: "/about/",
-		icon: "material-symbols:person",
+		name: "心愿清单",
+		url: "/wishlist/",
+		icon: "material-symbols:star",
 	});
 
 	return { links } as NavBarConfig;
