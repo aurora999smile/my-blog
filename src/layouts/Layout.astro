@@ -833,27 +833,45 @@ const siteLang = lang.replace("_", "-");
     background: rgba(255, 105, 180, 0.4);
   }
 
-  /* 卡片基础过渡（无 hover 变换，避免纯展示卡片被影响） */
+  /* ============================================
+     卡片 hover 微交互
+     - translateY(-4px) 上浮，不破坏文档流
+     - 双层阴影：底层投影 + 粉色外发光
+     - 仅 transition transform / box-shadow，220ms ease-out
+     - 触屏设备禁用，respect prefers-reduced-motion
+     ============================================ */
+
+  /* 卡片基础过渡 */
   .card-base {
-    transition: box-shadow 0.2s ease,
-                border-color 0.2s ease;
+    transition: transform 220ms ease-out,
+                box-shadow 220ms ease-out;
   }
 
-  /* 仅交互元素启用 hover：导航选项、按钮、文章卡片 */
   @media (hover: hover) and (pointer: fine) {
-    .btn-plain:hover,
-    .btn-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(255, 105, 180, 0.12);
+    /* 所有 card-base 卡片统一 hover 效果 */
+    .card-base:hover {
+      transform: translateY(-4px);
+      box-shadow:
+        0 8px 24px rgba(255, 105, 180, 0.12),
+        0 0 0 1px rgba(255, 105, 180, 0.08);
     }
 
     /* 网格模式文章卡片 hover */
     .grid-mode .post-card-wrapper {
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      transition: transform 220ms ease-out, box-shadow 220ms ease-out;
     }
     .grid-mode .post-card-wrapper:hover {
+      transform: translateY(-4px);
+      box-shadow:
+        0 8px 24px rgba(255, 105, 180, 0.12),
+        0 0 0 1px rgba(255, 105, 180, 0.08);
+    }
+
+    /* 按钮类保持略小幅度 */
+    .btn-plain:hover,
+    .btn-card:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(255, 105, 180, 0.1);
+      box-shadow: 0 4px 12px rgba(255, 105, 180, 0.12);
     }
   }
 
@@ -863,6 +881,17 @@ const siteLang = lang.replace("_", "-");
     .grid-mode .post-card-wrapper,
     .btn-plain,
     .btn-card {
+      transform: none !important;
+    }
+  }
+
+  /* 无障碍：系统关闭动画时禁用 transform 和 transition */
+  @media (prefers-reduced-motion: reduce) {
+    .card-base,
+    .grid-mode .post-card-wrapper,
+    .btn-plain,
+    .btn-card {
+      transition: none !important;
       transform: none !important;
     }
   }
