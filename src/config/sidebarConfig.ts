@@ -26,13 +26,22 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 		},
 	],
 
-	// ========== 右侧边栏：语录 + 音乐 ==========
+	// ========== 右侧边栏：语录 + 标签 + 音乐 ==========
 	rightComponents: [
 		{
 			type: "randomQuote",
 			enable: true,
 			position: "top",
 			showOnPostPage: false,
+		},
+		{
+			type: "tags",
+			enable: true,
+			position: "sticky",
+			showOnPostPage: true,
+			specificConfig: {
+				collapseThreshold: 15,
+			},
 		},
 		{
 			type: "music",
@@ -60,6 +69,14 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 			type: "announcement",
 			enable: true,
 			showOnPostPage: true,
+		},
+		{
+			type: "tags",
+			enable: true,
+			showOnPostPage: true,
+			specificConfig: {
+				collapseThreshold: 15,
+			},
 		},
 		{
 			type: "randomQuote",
