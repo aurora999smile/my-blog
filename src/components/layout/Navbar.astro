@@ -86,19 +86,19 @@ function isActiveLink(linkUrl: string): boolean {
 	if (linkUrl === "/") {
 		return (
 			currentPath === "/" ||
-			currentPath === "/my-blog/" ||
-			currentPath === "/my-blog"
+			currentPath === "/flare-tide/" ||
+			currentPath === "/flare-tide"
 		);
 	}
 	// For links with query params, compare full URL including params
 	if (linkUrl.includes("?")) {
-		const cleanCurrent = currentPath.replace(/\/my-blog\/?/, "/");
+		const cleanCurrent = currentPath.replace(/\/flare-tide\/?/, "/");
 		const currentSearch = Astro.url.search || "";
 		const cleanLinkPath = linkUrl.split("?")[0];
 		const linkSearch = linkUrl.split("?")[1] ? "?" + linkUrl.split("?")[1] : "";
 		return cleanCurrent === cleanLinkPath && currentSearch === linkSearch;
 	}
-	const cleanPath = currentPath.replace(/\/my-blog\/?/, "/");
+	const cleanPath = currentPath.replace(/\/flare-tide\/?/, "/");
 	return cleanPath.startsWith(linkUrl) && linkUrl !== "/";
 }
 
@@ -362,17 +362,17 @@ function updateNavbarActiveLink() {
 		try {
 			const linkUrl = new URL(linkHref, window.location.origin);
 			if (linkUrl.pathname === "/") {
-				return pathname === "/" || pathname === "/my-blog/" || pathname === "/my-blog";
+				return pathname === "/" || pathname === "/flare-tide/" || pathname === "/flare-tide";
 			}
 			// For links with query params, compare full URL including params
 			if (linkUrl.search) {
-				const cleanCurrent = pathname.replace(/\/my-blog\/?/, "/");
+				const cleanCurrent = pathname.replace(/\/flare-tide\/?/, "/");
 				const currentSearch = window.location.search || "";
-				const cleanLinkPath = linkUrl.pathname.replace(/\/my-blog\/?/, "/");
+				const cleanLinkPath = linkUrl.pathname.replace(/\/flare-tide\/?/, "/");
 				return cleanCurrent === cleanLinkPath && currentSearch === linkUrl.search;
 			}
-			const cleanPath = pathname.replace(/\/my-blog\/?/, "/");
-			const cleanLinkPath = linkUrl.pathname.replace(/\/my-blog\/?/, "/");
+			const cleanPath = pathname.replace(/\/flare-tide\/?/, "/");
+			const cleanLinkPath = linkUrl.pathname.replace(/\/flare-tide\/?/, "/");
 			return cleanPath.startsWith(cleanLinkPath) && cleanLinkPath !== "/";
 		} catch {
 			return false;

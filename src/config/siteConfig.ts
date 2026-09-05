@@ -12,7 +12,7 @@ export const siteConfig: SiteConfig = {
 	subtitle: "记录我们的每一刻",
 
 	// 站点 URL
-	site_url: "https://aurora999smile.github.io/my-blog/",
+	site_url: "https://Serenvor.github.io/flare-tide/",
 
 	// 站点描述
 	description:
