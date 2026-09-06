@@ -11,10 +11,10 @@
   <div class="floating-hearts" aria-hidden="true"></div>
 
   <!-- 标题 -->
-  <div class="timer-header text-center mb-4">
+  <div class="timer-header text-center mb-3">
     <div class="inline-flex items-center gap-2 mb-1">
       <span class="text-xl">💕</span>
-      <span class="timer-title text-lg font-bold text-neutral-800 dark:text-neutral-100">始于2024.07.14 · 我们同行的日子</span>
+      <span class="timer-title text-lg font-bold">始于2024.07.14 · 我们同行的日子</span>
       <span class="text-xl">💕</span>
     </div>
   </div>
@@ -42,14 +42,14 @@
     </div>
   </div>
 
-  <!-- 底部小字 -->
-  <div class="text-center text-xs text-neutral-400 dark:text-neutral-500 mb-4 opacity-70" style="letter-spacing:0.08em;">
+  <!-- 底部标语 -->
+  <div class="timer-slogan text-center text-xs mb-1" style="letter-spacing:0.08em;">
     时间会见证所有细碎的浪漫
   </div>
 
-  <!-- 里程碑轮播 -->
+  <!-- 里程碑轮播（单行切换） -->
   <div class="milestone-marquee" id="milestone-marquee">
-    <div class="milestone-track" id="milestone-track"></div>
+    <div class="milestone-text" id="milestone-text">加载中...</div>
   </div>
 
   <!-- 纪念日倒计时 -->
@@ -110,6 +110,20 @@
       containerBreathe 6s ease-in-out 450ms infinite;
   }
 
+  /* 背景淡粉色蒙版 */
+  .love-timer-wrapper::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 182, 193, 0.15);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  :global(.dark) .love-timer-wrapper::before {
+    background: rgba(255, 105, 180, 0.1);
+  }
+
   @keyframes timerFadeIn {
     from { opacity: 0; transform: translateY(1rem); }
     to { opacity: 1; transform: translateY(0); }
@@ -160,12 +174,8 @@
       opacity: 0;
       transform: translateY(0) translateX(0) scale(0.6);
     }
-    15% {
-      opacity: 0.5;
-    }
-    85% {
-      opacity: 0.3;
-    }
+    15% { opacity: 0.5; }
+    85% { opacity: 0.3; }
     100% {
       opacity: 0;
       transform: translateY(-100%) translateX(20px) scale(1);
@@ -180,6 +190,11 @@
 
   .timer-title {
     letter-spacing: 0.06em;
+    color: #222222 !important;
+  }
+
+  :global(.dark) .timer-title {
+    color: #f5f5f5 !important;
   }
 
   /* ===== 总时长数字 ===== */
@@ -194,16 +209,14 @@
     filter: brightness(1.1);
   }
 
-  .timer-unit {
-    text-align: center;
-  }
+  .timer-unit { text-align: center; }
 
   .timer-number {
     font-weight: 800;
     line-height: 1.1;
     font-variant-numeric: tabular-nums;
     letter-spacing: 0.02em;
-    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    background: linear-gradient(135deg, var(--primary, #ff69b4), color-mix(in srgb, var(--primary, #ff69b4) 80%, black));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -237,47 +250,54 @@
 
   .timer-label {
     font-size: 0.65rem;
-    color: #999;
+    color: #666666 !important;
     margin-top: 0.2rem;
     letter-spacing: 0.1em;
   }
 
-  /* ===== 里程碑轮播 ===== */
+  :global(.dark) .timer-label {
+    color: #aaaaaa !important;
+  }
+
+  /* ===== 标语文字 ===== */
+  .timer-slogan {
+    position: relative;
+    z-index: 1;
+    color: #555555 !important;
+  }
+
+  :global(.dark) .timer-slogan {
+    color: #bbbbbb !important;
+  }
+
+  /* ===== 里程碑轮播（单行切换） ===== */
   .milestone-marquee {
     position: relative;
     z-index: 1;
-    height: 1.4rem;
-    overflow: hidden;
-    margin: 0.5rem 0 0;
-  }
-
-  .milestone-track {
-    display: flex;
-    flex-direction: column;
-    animation: marqueeUp 12s ease-in-out infinite;
-  }
-
-  .milestone-item {
-    height: 1.4rem;
-    line-height: 1.4rem;
+    height: 1.8rem;
+    margin: 0 auto 0.5rem;
+    max-width: 28rem;
     text-align: center;
-    font-size: 0.72rem;
-    color: #b86e8a;
+    overflow: hidden;
+  }
+
+  .milestone-text {
+    height: 1.8rem;
+    line-height: 1.8rem;
+    font-size: 0.75rem;
+    color: #b06080;
     white-space: nowrap;
     letter-spacing: 0.04em;
-    flex-shrink: 0;
+    opacity: 0.85;
+    transition: opacity 0.4s ease;
   }
 
-  :global(.dark) .milestone-item {
-    color: #e8a0b8;
+  :global(.dark) .milestone-text {
+    color: #d8a0c0;
   }
 
-  @keyframes marqueeUp {
-    0%, 20% { transform: translateY(0); }
-    25%, 45% { transform: translateY(-1.4rem); }
-    50%, 70% { transform: translateY(-2.8rem); }
-    75%, 95% { transform: translateY(-4.2rem); }
-    100% { transform: translateY(0); }
+  .milestone-text.milestone-fading {
+    opacity: 0;
   }
 
   /* ===== 纪念日卡片 ===== */
@@ -291,6 +311,19 @@
     border: 1px solid rgba(255, 105, 180, 0.08);
     flex: 1 1 0;
     min-width: 0;
+    transition: transform 220ms ease-out, box-shadow 220ms ease-out;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .countdown-item { transition: none; }
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .countdown-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(255, 105, 180, 0.18);
+      border-color: rgba(255, 105, 180, 0.2);
+    }
   }
 
   :global(.dark) .countdown-item {
@@ -298,7 +331,6 @@
     border-color: rgba(255, 105, 180, 0.06);
   }
 
-  /* 不足30天自动柔和高亮 */
   .countdown-item.highlight-soon {
     background: rgba(255, 105, 180, 0.1);
     border-color: rgba(255, 105, 180, 0.2);
@@ -315,7 +347,6 @@
     50% { box-shadow: 0 4px 20px rgba(255, 105, 180, 0.12); }
   }
 
-  /* 今日纪念日特殊状态 */
   .countdown-item.is-today {
     background: linear-gradient(135deg,
       rgba(255, 105, 180, 0.15) 0%,
@@ -344,7 +375,7 @@
   .countdown-title {
     font-size: clamp(0.65rem, 2vw, 0.8rem);
     font-weight: 600;
-    color: #666;
+    color: #666666 !important;
     margin-bottom: 0.15rem;
     white-space: nowrap;
     overflow: hidden;
@@ -352,13 +383,17 @@
   }
 
   :global(.dark) .countdown-title {
-    color: #aaa;
+    color: #aaaaaa !important;
   }
 
   .countdown-date {
     font-size: clamp(0.55rem, 1.8vw, 0.65rem);
-    color: #999;
+    color: #999999 !important;
     margin-bottom: 0.3rem;
+  }
+
+  :global(.dark) .countdown-date {
+    color: #888888 !important;
   }
 
   .countdown-value {
@@ -368,6 +403,29 @@
     font-variant-numeric: tabular-nums;
     letter-spacing: 0.03em;
     line-height: 1.3;
+  }
+
+  /* ===== 倒计时hover展开（使用 :global 修复 Astro scoped CSS 对动态元素不生效的问题） ===== */
+  :global(.countdown-value .cd-full) {
+    display: none !important;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    :global(.countdown-item:hover .countdown-value .cd-days-only) {
+      display: none !important;
+    }
+    :global(.countdown-item:hover .countdown-value .cd-full) {
+      display: inline !important;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :global(.countdown-value .cd-days-only) {
+      display: none !important;
+    }
+    :global(.countdown-value .cd-full) {
+      display: inline !important;
+    }
   }
 
   /* ===== 彩蛋弹窗 ===== */
@@ -464,29 +522,17 @@
       font-size: 1rem;
       margin-top: 0.2rem;
     }
-    .timer-total {
-      gap: 0.5rem;
-    }
+    .timer-total { gap: 0.5rem; }
     .timer-title {
       font-size: 0.85rem !important;
       letter-spacing: 0.02em;
     }
-    .countdown-item {
-      padding: 0.6rem 0.3rem;
-    }
-    .countdown-icon {
-      font-size: 1.2rem;
-    }
-    .countdown-title {
-      font-size: 0.68rem;
-    }
-    .countdown-value {
-      font-size: 0.72rem;
-    }
-    .easter-egg-card {
-      margin: 0 1rem;
-      padding: 1.5rem;
-    }
+    .countdown-item { padding: 0.6rem 0.3rem; }
+    .countdown-icon { font-size: 1.2rem; }
+    .countdown-title { font-size: 0.68rem; }
+    .countdown-value { font-size: 0.72rem; }
+    .easter-egg-card { margin: 0 1rem; padding: 1.5rem; }
+    .milestone-marquee { max-width: 100%; }
   }
 </style>
 
@@ -599,6 +645,13 @@
     return pad(cd.minutes) + '分' + pad(cd.seconds) + '秒';
   }
 
+  // 格式化仅显示天数的倒计时
+  function formatDaysOnlyCountdown(cd) {
+    if (!cd) return '已过';
+    if (cd.isZero) return '🎉 今天！';
+    return cd.days + '天';
+  }
+
   /* ===== 更新纪念日卡片 ===== */
   function updateCountdownCard(el, month0, day, isLunar, lunarDate) {
     if (!el) return;
@@ -655,7 +708,13 @@
       el.classList.remove('highlight-soon');
     }
 
-    el.querySelector('.countdown-value').textContent = formatFullCountdown(cd);
+    // 同时设置两个版本：默认显示天数，hover显示完整
+    var daysOnly = formatDaysOnlyCountdown(cd);
+    var fullText = formatFullCountdown(cd);
+    var valueEl = el.querySelector('.countdown-value');
+    if (valueEl) {
+      valueEl.innerHTML = '<span class="cd-days-only">' + daysOnly + '</span><span class="cd-full">' + fullText + '</span>';
+    }
   }
 
   /* ===== 里程碑轮播 ===== */
@@ -701,23 +760,36 @@
   }
 
   function renderMilestones() {
-    var track = document.getElementById('milestone-track');
-    if (!track) return;
+    var textEl = document.getElementById('milestone-text');
+    if (!textEl) return;
     var milestones = getMilestones();
-    var html = '';
-    for (var i = 0; i < milestones.length; i++) {
-      html += '<div class="milestone-item">' + milestones[i] + '</div>';
-    }
-    // 重复第一条实现无缝循环
-    if (milestones.length > 1) {
-      html += '<div class="milestone-item">' + milestones[0] + '</div>';
-    }
-    track.innerHTML = html;
+    if (milestones.length === 0) return;
 
-    // 根据条数调整动画
-    var count = milestones.length + 1;
-    var duration = count * 3.5;
-    track.style.animationDuration = duration + 's';
+    // 存储到全局供定时器使用
+    window.__milestoneList = milestones;
+    window.__milestoneIdx = 0;
+
+    // 显示第一条
+    textEl.textContent = milestones[0];
+
+    // 每3秒切换一条，带淡入淡出
+    if (window.__milestoneTimer) clearInterval(window.__milestoneTimer);
+    window.__milestoneTimer = setInterval(function () {
+      var idx = window.__milestoneIdx;
+      var list = window.__milestoneList;
+      if (!list || list.length === 0) return;
+
+      // 淡出
+      textEl.classList.add('milestone-fading');
+
+      setTimeout(function () {
+        // 切换文字
+        window.__milestoneIdx = (idx + 1) % list.length;
+        textEl.textContent = list[window.__milestoneIdx];
+        // 淡入
+        textEl.classList.remove('milestone-fading');
+      }, 400); // 与 CSS transition 时长匹配
+    }, 3000);
   }
 
   /* ===== 浮动爱心 ===== */

@@ -9,8 +9,9 @@ export interface Props {
 }
 
 const { playerUrl, playerMode = "order" } = Astro.props;
-
-const urls = Array.isArray(playerUrl) ? playerUrl : [playerUrl];
+const baseUrl = import.meta.env.BASE_URL || "/";
+const rawUrls = Array.isArray(playerUrl) ? playerUrl : [playerUrl];
+const urls = rawUrls.map((u) => (/^https?:\/\//.test(u) ? u : `${baseUrl.replace(/\/$/, "")}${u.startsWith("/") ? "" : "/"}${u}`));
 const hasMultiple = urls.length > 1;
 const urlsJson = JSON.stringify(urls);
 

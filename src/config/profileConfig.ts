@@ -8,7 +8,7 @@ export const profileConfig: ProfileConfig = {
 	name: "斐",
 
 	// 个人签名
-	bio: "用文字留住我们的每一刻",
+	bio: "以光为笺✨收藏我们岁岁的温柔",
 
 	// 链接配置
 	links: [
@@ -33,6 +33,6 @@ export const profileConfig: ProfileConfig = {
 		// 名字
 		name: "婷",
 		// 签名
-		bio: "记录我们的每一刻",
+		bio: "",
 	},
 };
